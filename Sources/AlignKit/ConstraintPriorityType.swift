@@ -9,7 +9,7 @@
 import UIKit
 
 
-struct ConstraintPriorityType: ExpressibleByFloatLiteral, Equatable, Strideable {
+internal struct ConstraintPriorityType: ExpressibleByFloatLiteral, Equatable, Strideable {
     
     public typealias FloatLiteralType = Float
     

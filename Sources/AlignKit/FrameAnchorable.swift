@@ -9,7 +9,8 @@
 import UIKit
 
 
-protocol FrameAnchorable {
+@MainActor
+public protocol FrameAnchorable {
     
     associatedtype AnchorType
     

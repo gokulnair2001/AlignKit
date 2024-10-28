@@ -9,7 +9,7 @@
 import UIKit
 
 
-class RelativeFrameAnchorManager {
+internal class RelativeFrameAnchorManager {
 
     private let view: UIView
     
@@ -17,6 +17,8 @@ class RelativeFrameAnchorManager {
         self.view = view
     }
     
+    
+    @MainActor
     func getRelativeAnchor(_ anchor: FrameLayoutAttribute) -> [RelativeFrameLayoutAnchor] {
 
         switch anchor {

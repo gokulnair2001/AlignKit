@@ -8,7 +8,7 @@
 import UIKit
 
 
-class GreaterThanOrEqualToConstraintManager: FrameConstraintManager {
+final internal class GreaterThanOrEqualToConstraintManager: FrameConstraintManager {
     
     var frameDescription: FrameDescription
     

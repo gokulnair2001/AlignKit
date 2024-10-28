@@ -8,16 +8,16 @@
 import UIKit
 
 
-typealias FrameConstraintView = UIView
+internal typealias FrameConstraintView = UIView
 
 extension FrameConstraintView {
     
-    var alk: FrameConstraintComposer {
+    public var alk: FrameConstraintComposer {
         self.translatesAutoresizingMaskIntoConstraints = false
         return FrameConstraintComposer(view: self)
     }
     
-    var anchor: RelativeFrameAnchor {
+    public var anchor: RelativeFrameAnchor {
         return RelativeFrameAnchor(view: self)
     }
 

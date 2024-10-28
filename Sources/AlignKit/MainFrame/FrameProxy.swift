@@ -8,7 +8,7 @@
 import UIKit
 
 
-class FrameProxy: ProxyView {
+internal class FrameProxy: ProxyView {
     
     var view: UIView
     private(set) var constraints: [NSLayoutConstraint] = []

@@ -8,10 +8,10 @@
 import UIKit
 
 
-class PriorityFrameConstraintBuilder: FinalFrameConstraintBuilder {
+public class PriorityFrameConstraintBuilder: FinalFrameConstraintBuilder {
     
     @discardableResult
-    func priority(_ value: ConstraintPriorityValue) -> FinalFrameConstraintBuilder {
+    public func priority(_ value: ConstraintPriorityValue) -> FinalFrameConstraintBuilder {
         self.frameDescription.priority = value.constraintPriorityValue
         return self
     }

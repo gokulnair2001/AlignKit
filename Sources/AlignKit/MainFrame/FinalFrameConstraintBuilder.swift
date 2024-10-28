@@ -8,7 +8,7 @@
 import UIKit
 
 
-class FinalFrameConstraintBuilder {
+public class FinalFrameConstraintBuilder {
     
     var frameDescription: FrameDescription
     
@@ -22,6 +22,7 @@ class FinalFrameConstraintBuilder {
         return self
     }
     
+    @MainActor
     var constraint: NSLayoutConstraint? {
         return frameDescription.constraint
     }

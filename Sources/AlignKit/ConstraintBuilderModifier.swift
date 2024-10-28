@@ -8,7 +8,8 @@
 import UIKit
 
 
-class ConstraintBuilderModifier {
+@MainActor
+public class ConstraintBuilderModifier {
     
     private let requestType: ConstraintModificationRequest
     private var generatedDescriptions: [FrameDescription]
@@ -18,7 +19,7 @@ class ConstraintBuilderModifier {
         self.requestType = requestType
     }
     
-    func applyIf(_ condition: Bool) {
+    public func applyIf(_ condition: Bool) {
         
         if condition {
             startGeneration()
@@ -26,7 +27,7 @@ class ConstraintBuilderModifier {
         
     }
     
-    func debugPrintIf(_ condition: Bool = true) {
+    public func debugPrintIf(_ condition: Bool = true) {
         
         generatedDescriptions = generatedDescriptions.compactMap({ item in
             let _item = item
@@ -38,7 +39,7 @@ class ConstraintBuilderModifier {
     }
     
     
-    func animate(_ duration: TimeInterval) {
+    public func animate(_ duration: TimeInterval) {
         
         startGeneration()
         
@@ -48,7 +49,7 @@ class ConstraintBuilderModifier {
         
     }
     
-    func animate(_ duration: TimeInterval, delay: TimeInterval, type: UIView.AnimationOptions, completion: @escaping((Bool) -> Void)) {
+    public func animate(_ duration: TimeInterval, delay: TimeInterval, type: UIView.AnimationOptions, completion: @escaping((Bool) -> Void)) {
         
         startGeneration()
         

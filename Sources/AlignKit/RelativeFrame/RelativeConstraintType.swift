@@ -6,7 +6,7 @@
 //
 
 
-enum RelativeConstraintType {
+internal enum RelativeConstraintType {
     case equalTo
     case lessThanOrEqualTo
     case greaterThanOrEqualTo
