@@ -8,7 +8,7 @@
 import UIKit
 
 
-class RelationalFrameConstraintBuilder {
+public class RelationalFrameConstraintBuilder {
     
     var frameDescription: FrameDescription
     
@@ -17,7 +17,7 @@ class RelationalFrameConstraintBuilder {
     }
 
     @discardableResult
-    func equalToSuperView(_ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
+    public func equalToSuperView(_ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
         
         self.frameDescription.relativeConstraintType = .equalTo
         self.frameDescription.sourceLocation = (file, line)
@@ -26,7 +26,7 @@ class RelationalFrameConstraintBuilder {
     }
     
     @discardableResult
-    func relativeTo(_ anchors: [RelativeFrameLayoutAnchor], _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
+    public func relativeTo(_ anchors: [RelativeFrameLayoutAnchor], _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
         
         self.frameDescription.relativeConstraintType = .equalTo
         self.frameDescription.relativeAnchors = anchors
@@ -36,7 +36,7 @@ class RelationalFrameConstraintBuilder {
     }
     
     @discardableResult
-    func equalToConstant(_ constant: ConstraintConstantValue, _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
+    public func equalToConstant(_ constant: ConstraintConstantValue, _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
         
         self.frameDescription.relativeConstraintType = .equalTo
         self.frameDescription.constant = constant
@@ -48,7 +48,7 @@ class RelationalFrameConstraintBuilder {
     // MARK: - LessThanOrEqual
     
     @discardableResult
-    func lessThanOrEqualToSuperView(_ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
+    public func lessThanOrEqualToSuperView(_ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
         
         self.frameDescription.relativeConstraintType = .lessThanOrEqualTo
         self.frameDescription.sourceLocation = (file, line)
@@ -57,7 +57,7 @@ class RelationalFrameConstraintBuilder {
     }
     
     @discardableResult
-    func lessThanOrEqualTo(_ anchors: [RelativeFrameLayoutAnchor], _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
+    public func lessThanOrEqualTo(_ anchors: [RelativeFrameLayoutAnchor], _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
         
         self.frameDescription.relativeConstraintType = .lessThanOrEqualTo
         self.frameDescription.relativeAnchors = anchors
@@ -69,7 +69,7 @@ class RelationalFrameConstraintBuilder {
     // MARK: - GreaterThanOrEqual
     
     @discardableResult
-    func greaterThanOrEqualToSuperView(_ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
+    public func greaterThanOrEqualToSuperView(_ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
         
         self.frameDescription.relativeConstraintType = .greaterThanOrEqualTo
         self.frameDescription.sourceLocation = (file, line)
@@ -78,7 +78,7 @@ class RelationalFrameConstraintBuilder {
     }
     
     @discardableResult
-    func greaterThanOrEqualTo(_ anchors: [RelativeFrameLayoutAnchor], _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
+    public func greaterThanOrEqualTo(_ anchors: [RelativeFrameLayoutAnchor], _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
         
         self.frameDescription.relativeConstraintType = .greaterThanOrEqualTo
         self.frameDescription.relativeAnchors = anchors

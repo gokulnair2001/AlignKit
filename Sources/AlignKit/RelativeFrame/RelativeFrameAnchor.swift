@@ -9,7 +9,7 @@
 import UIKit
 
 
-class RelativeFrameAnchor: FrameAnchorable {
+public class RelativeFrameAnchor: FrameAnchorable {
     
     var view: UIView
     
@@ -20,105 +20,105 @@ class RelativeFrameAnchor: FrameAnchorable {
         self.relativeAnchorManager = RelativeFrameAnchorManager(view: view)
     }
     
-    typealias AnchorType = [RelativeFrameLayoutAnchor]
+    public typealias AnchorType = [RelativeFrameLayoutAnchor]
     
-    var top: AnchorType {
+    public var top: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.top)
     }
     
-    var bottom: AnchorType {
+    public var bottom: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.bottom)
     }
     
-    var left: AnchorType {
+    public var left: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.left)
     }
     
-    var right: AnchorType {
+    public var right: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.right)
     }
     
-    var leading: AnchorType {
+    public var leading: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.leading)
     }
     
-    var trailing: AnchorType {
+    public var trailing: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.trailing)
     }
     
-    var topMargin: AnchorType {
+    public var topMargin: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.topMargin)
     }
     
-    var bottomMargin: AnchorType {
+    public var bottomMargin: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.bottomMargin)
     }
     
-    var leftMargin: AnchorType {
+    public var leftMargin: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.top)
     }
     
-    var rightMargin: AnchorType {
+    public var rightMargin: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.rightMargin)
     }
     
-    var margins: AnchorType {
+    public var margins: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.margins)
     }
     
-    var leadingMargin: AnchorType {
+    public var leadingMargin: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.leadingMargin)
     }
     
-    var trailingMargin: AnchorType {
+    public var trailingMargin: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.trailingMargin)
     }
     
-    var width: AnchorType {
+    public var width: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.width)
     }
     
-    var height: AnchorType {
+    public var height: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.height)
     }
     
-    var lastBaseline: AnchorType {
+    public var lastBaseline: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.lastBaseline)
     }
     
-    var firstBaseline: AnchorType {
+    public var firstBaseline: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.firstBaseline)
     }
     
-    var edges: AnchorType {
+    public var edges: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.edges)
     }
     
-    var centre: AnchorType {
+    public var centre: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.centre)
     }
     
-    var centreWithInMargins: AnchorType {
+    public var centreWithInMargins: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.centreWithInMargins)
     }
     
-    var size: AnchorType {
+    public var size: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.size)
     }
     
-    var centreY: AnchorType {
+    public var centreY: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.centerY)
     }
     
-    var centreX: AnchorType {
+    public var centreX: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.centerX)
     }
     
-    var centerXWithInMargin: AnchorType {
+    public var centerXWithInMargin: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.centerXWithInMargin)
     }
     
-    var centerYWithInMargin: AnchorType {
+    public var centerYWithInMargin: AnchorType {
         return relativeAnchorManager.getRelativeAnchor(.centerYWithInMargin)
     }
     

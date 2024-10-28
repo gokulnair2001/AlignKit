@@ -9,7 +9,7 @@
 import UIKit
  
 
-protocol ProxyView {
+internal protocol ProxyView {
     var view: UIView { get }
 }
 

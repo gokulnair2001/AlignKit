@@ -8,7 +8,8 @@
 import UIKit
 
 
-protocol FrameConstraintManager {
+@MainActor
+internal protocol FrameConstraintManager {
     
     var frameDescription: FrameDescription { get set }
     

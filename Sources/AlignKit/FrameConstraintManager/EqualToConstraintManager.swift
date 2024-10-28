@@ -8,7 +8,7 @@
 import UIKit
 
 
-class EqualToConstraintManager: FrameConstraintManager {
+final internal class EqualToConstraintManager: FrameConstraintManager {
   
     var frameDescription: FrameDescription
     

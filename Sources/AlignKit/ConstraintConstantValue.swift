@@ -9,7 +9,7 @@
 import UIKit
 
 
-protocol ConstraintConstantValue {
+public protocol ConstraintConstantValue {
     
 }
 

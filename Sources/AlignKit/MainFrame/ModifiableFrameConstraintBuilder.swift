@@ -9,28 +9,28 @@
 import UIKit
 
 
-class ModifiableFrameConstraintBuilder: PriorityFrameConstraintBuilder {
+public class ModifiableFrameConstraintBuilder: PriorityFrameConstraintBuilder {
     
     @discardableResult
-    func inset(_ constant: CGFloat) -> ModifiableFrameConstraintBuilder {
+    public func inset(_ constant: CGFloat) -> ModifiableFrameConstraintBuilder {
         self.frameDescription.constant = constant
         return self
     }
     
     @discardableResult
-    func offset(_ constant: CGFloat) -> ModifiableFrameConstraintBuilder {
+    public func offset(_ constant: CGFloat) -> ModifiableFrameConstraintBuilder {
         self.frameDescription.constant = -constant
         return self
     }
    
     @discardableResult
-    func multiplier(_ constant: CGFloat) -> ModifiableFrameConstraintBuilder {
+    public func multiplier(_ constant: CGFloat) -> ModifiableFrameConstraintBuilder {
         self.frameDescription.multiplier = constant
         return self
     }
     
     @discardableResult
-    func divider(_ constant: CGFloat) -> ModifiableFrameConstraintBuilder {
+    public func divider(_ constant: CGFloat) -> ModifiableFrameConstraintBuilder {
         self.frameDescription.multiplier = 1/constant
         return self
     }

@@ -7,7 +7,8 @@
 
 import UIKit
     
-class FrameDescription {
+
+internal class FrameDescription {
     
     var proxyView: FrameProxy
     var layoutAttribute: FrameLayoutAttribute = .none
@@ -22,7 +23,7 @@ class FrameDescription {
     
     var shouldDebugOnConsole: Bool = false
     
-    
+    @MainActor
     var constraint: NSLayoutConstraint? {
         return FrameConstraintBuilder.generateConstraints(frameDescription: self).first
     }

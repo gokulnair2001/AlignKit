@@ -8,7 +8,7 @@
 import UIKit
 
 
-class FrameConstraintBuilder: FrameAnchorable {
+public class FrameConstraintBuilder: FrameAnchorable {
     
     var proxyView: FrameProxy
     var descriptions: [FrameDescription] = []
@@ -17,105 +17,105 @@ class FrameConstraintBuilder: FrameAnchorable {
         self.proxyView = proxyView
     }
     
-    typealias AnchorType = FrameConstraintBuilderExtended
+    public typealias AnchorType = FrameConstraintBuilderExtended
     
-    var top: AnchorType {
+    public var top: AnchorType {
         storeAnchor(.top)
     }
     
-    var bottom: AnchorType {
+    public var bottom: AnchorType {
         storeAnchor(.bottom)
     }
     
-    var left: AnchorType {
+    public var left: AnchorType {
         storeAnchor(.left)
     }
     
-    var right: AnchorType {
+    public var right: AnchorType {
         storeAnchor(.right)
     }
     
-    var leading: AnchorType {
+    public var leading: AnchorType {
         storeAnchor(.leading)
     }
     
-    var trailing: AnchorType {
+    public var trailing: AnchorType {
         storeAnchor(.trailing)
     }
     
-    var topMargin: AnchorType {
+    public var topMargin: AnchorType {
         storeAnchor(.topMargin)
     }
     
-    var bottomMargin: AnchorType {
+    public var bottomMargin: AnchorType {
         storeAnchor(.bottomMargin)
     }
     
-    var leftMargin: AnchorType {
+    public var leftMargin: AnchorType {
         storeAnchor(.leftMargin)
     }
     
-    var rightMargin: AnchorType {
+    public var rightMargin: AnchorType {
         storeAnchor(.rightMargin)
     }
     
-    var margins: AnchorType {
+    public var margins: AnchorType {
         storeAnchor(.margins)
     }
     
-    var leadingMargin: AnchorType {
+    public var leadingMargin: AnchorType {
         storeAnchor(.leadingMargin)
     }
     
-    var trailingMargin: AnchorType {
+    public var trailingMargin: AnchorType {
         storeAnchor(.trailingMargin)
     }
     
-    var width: AnchorType {
+    public var width: AnchorType {
         storeAnchor(.width)
     }
     
-    var height: AnchorType {
+    public var height: AnchorType {
         storeAnchor(.height)
     }
     
-    var lastBaseline: AnchorType {
+    public var lastBaseline: AnchorType {
         storeAnchor(.lastBaseline)
     }
     
-    var firstBaseline: AnchorType {
+    public var firstBaseline: AnchorType {
         storeAnchor(.firstBaseline)
     }
     
-    var edges: AnchorType {
+    public var edges: AnchorType {
         storeAnchor(.edges)
     }
     
-    var centre: AnchorType {
+    public var centre: AnchorType {
         storeAnchor(.centre)
     }
     
-    var centreWithInMargins: AnchorType {
+    public var centreWithInMargins: AnchorType {
         storeAnchor(.centreWithInMargins)
     }
     
-    var size: AnchorType {
+    public var size: AnchorType {
         storeAnchor(.size)
     }
     
-    var centreY: AnchorType {
+    public var centreY: AnchorType {
         storeAnchor(.centerY)
     }
     
-    var centreX: AnchorType {
+    public var centreX: AnchorType {
         storeAnchor(.centerX)
     }
     
-    var centerXWithInMargin: AnchorType {
+    public var centerXWithInMargin: AnchorType {
         storeAnchor(.centerXWithInMargin)
     }
     
-    var centerYWithInMargin: AnchorType {
+    public var centerYWithInMargin: AnchorType {
         storeAnchor(.centerYWithInMargin)
     }
     
@@ -125,6 +125,7 @@ class FrameConstraintBuilder: FrameAnchorable {
         return FrameConstraintBuilderExtended(description)
     }
     
+    @MainActor
     static func generateConstraints(frameDescription: FrameDescription) -> [NSLayoutConstraint] {
         
         switch frameDescription.relativeConstraintType {
@@ -151,6 +152,7 @@ class FrameConstraintBuilder: FrameAnchorable {
         
     }
     
+    @MainActor
     static func makeConstraints(frameDescription: FrameDescription) {
         let constraints = generateConstraints(frameDescription: frameDescription)
         for constraint in constraints {
@@ -158,6 +160,7 @@ class FrameConstraintBuilder: FrameAnchorable {
         }
     }
     
+    @MainActor
     static func updateConstraints(frameDescription: FrameDescription) {
         let constraints = generateConstraints(frameDescription: frameDescription)
         for constraint in constraints {
@@ -165,6 +168,7 @@ class FrameConstraintBuilder: FrameAnchorable {
         }
     }
     
+    @MainActor
     static func removeConstraints(frameDescription: FrameDescription) {
         let constraints = generateConstraints(frameDescription: frameDescription)
         for constraint in constraints {

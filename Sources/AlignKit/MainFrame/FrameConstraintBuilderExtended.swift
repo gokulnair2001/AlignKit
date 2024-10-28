@@ -8,131 +8,131 @@
 import UIKit
 
 
-class FrameConstraintBuilderExtended: RelationalFrameConstraintBuilder, FrameAnchorable {
+public class FrameConstraintBuilderExtended: RelationalFrameConstraintBuilder, FrameAnchorable {
     
-    typealias AnchorType = FrameConstraintBuilderExtended
+    public typealias AnchorType = FrameConstraintBuilderExtended
     
-    var top: AnchorType {
+    public var top: AnchorType {
         storeAnchor(.top)
         return self
     }
     
-    var bottom: AnchorType {
+    public var bottom: AnchorType {
         storeAnchor(.bottom)
         return self
     }
     
-    var left: AnchorType {
+    public var left: AnchorType {
         storeAnchor(.left)
         return self
     }
     
-    var right: AnchorType {
+    public var right: AnchorType {
         storeAnchor(.right)
         return self
     }
     
-    var leading: AnchorType {
+    public var leading: AnchorType {
         storeAnchor(.leading)
         return self
     }
     
-    var trailing: AnchorType {
+    public var trailing: AnchorType {
         storeAnchor(.trailing)
         return self
     }
     
-    var topMargin: AnchorType {
+    public var topMargin: AnchorType {
         storeAnchor(.topMargin)
         return self
     }
     
-    var bottomMargin: AnchorType {
+    public var bottomMargin: AnchorType {
         storeAnchor(.bottomMargin)
         return self
     }
     
-    var leftMargin: AnchorType {
+    public var leftMargin: AnchorType {
         storeAnchor(.leftMargin)
         return self
     }
     
-    var rightMargin: AnchorType {
+    public var rightMargin: AnchorType {
         storeAnchor(.rightMargin)
         return self
     }
     
-    var margins: AnchorType {
+    public var margins: AnchorType {
         storeAnchor(.margins)
         return self
     }
     
-    var leadingMargin: AnchorType {
+    public var leadingMargin: AnchorType {
         storeAnchor(.leadingMargin)
         return self
     }
     
-    var trailingMargin: AnchorType {
+    public var trailingMargin: AnchorType {
         storeAnchor(.trailingMargin)
         return self
     }
     
-    var width: AnchorType {
+    public var width: AnchorType {
         storeAnchor(.width)
         return self
     }
     
-    var height: AnchorType {
+    public var height: AnchorType {
         storeAnchor(.height)
         return self
     }
     
-    var lastBaseline: AnchorType {
+    public var lastBaseline: AnchorType {
         storeAnchor(.lastBaseline)
         return self
     }
     
-    var firstBaseline: AnchorType {
+    public var firstBaseline: AnchorType {
         storeAnchor(.firstBaseline)
         return self
     }
     
-    var edges: AnchorType {
+    public var edges: AnchorType {
         storeAnchor(.edges)
         return self
     }
     
-    var centre: AnchorType {
+    public var centre: AnchorType {
         storeAnchor(.centre)
         return self
     }
     
-    var centreWithInMargins: AnchorType {
+    public var centreWithInMargins: AnchorType {
         storeAnchor(.centreWithInMargins)
         return self
     }
     
-    var size: AnchorType {
+    public var size: AnchorType {
         storeAnchor(.size)
         return self
     }
     
-    var centreY: AnchorType {
+    public var centreY: AnchorType {
         storeAnchor(.centerY)
         return self
     }
     
-    var centreX: AnchorType {
+    public var centreX: AnchorType {
         storeAnchor(.centerX)
         return self
     }
     
-    var centerXWithInMargin: AnchorType {
+    public var centerXWithInMargin: AnchorType {
         storeAnchor(.centerXWithInMargin)
         return self
     }
     
-    var centerYWithInMargin: AnchorType {
+    public var centerYWithInMargin: AnchorType {
         storeAnchor(.centerYWithInMargin)
         return self
     }

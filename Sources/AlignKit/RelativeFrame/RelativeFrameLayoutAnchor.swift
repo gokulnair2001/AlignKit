@@ -8,21 +8,21 @@
 import UIKit
 
 
-protocol RelativeFrameLayoutAnchor {
+public protocol RelativeFrameLayoutAnchor {
     
 }
 
 extension RelativeFrameLayoutAnchor {
     
-    var extractYAxisAnchor: NSLayoutYAxisAnchor? {
+    internal var extractYAxisAnchor: NSLayoutYAxisAnchor? {
         return (self as? NSLayoutYAxisAnchor)
     }
     
-    var extractXAxisAnchor: NSLayoutXAxisAnchor? {
+    internal var extractXAxisAnchor: NSLayoutXAxisAnchor? {
         return (self as? NSLayoutXAxisAnchor)
     }
     
-    var extractDimension: NSLayoutDimension? {
+    internal var extractDimension: NSLayoutDimension? {
         return (self as? NSLayoutDimension)
     }
     
