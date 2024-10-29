@@ -14,8 +14,8 @@ extension NSLayoutConstraint {
         
         NSLayoutConstraint.activate([self])
         
-        if description.shouldDebugOnConsole {
-            debugPrint("AlignKit -- Constraint added: \(self.readableFormat())")
+        if description.modificationConfig.shouldDebugOnConsole {
+            debugPrint("AlignKit -- \(description.modificationConfig.debugPrefix) \(self.readableFormat())")
         }
     }
     
@@ -40,8 +40,8 @@ extension NSLayoutConstraint {
             
             existingConstraint.constant = newConstraint.constant
             
-            if description.shouldDebugOnConsole {
-                debugPrint("AlignKit -- Constraint updated: \(self.readableFormat())")
+            if description.modificationConfig.shouldDebugOnConsole {
+                debugPrint("AlignKit -- \(description.modificationConfig.debugPrefix) \(self.readableFormat())")
             }
             
         } else {
@@ -68,8 +68,8 @@ extension NSLayoutConstraint {
             // Deactivate the matching constraint
             NSLayoutConstraint.deactivate([existingConstraint])
             
-            if description.shouldDebugOnConsole {
-                debugPrint("AlignKit -- Constraint removed: \(self.readableFormat())")
+            if description.modificationConfig.shouldDebugOnConsole {
+                debugPrint("AlignKit -- \(description.modificationConfig.debugPrefix) \(self.readableFormat())")
             }
             
         } else {
