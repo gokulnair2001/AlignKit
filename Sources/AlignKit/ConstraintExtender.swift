@@ -10,16 +10,25 @@ import UIKit
 
 extension NSLayoutConstraint {
     
-    func activateIfNeeded(description: FrameDescription) {
+    internal func activateIfNeeded(description: FrameDescription) {
         
         NSLayoutConstraint.activate([self])
         
-        if description.shouldDebugOnConsole {
-            debugPrint("AlignKit -- Constraint added: \(self.readableFormat())")
+        if description.modificationConfig.shouldDebugOnConsole {
+            debugPrint("AlignKit -- \(description.modificationConfig.debugPrefix) \(self.readableFormat())")
         }
     }
     
-    func updateIfNeeded(description: FrameDescription) {
+    internal func deActivateIfNeeded(description: FrameDescription) {
+        
+        NSLayoutConstraint.deactivate([self])
+        
+        if description.modificationConfig.shouldDebugOnConsole {
+            debugPrint("AlignKit -- \(description.modificationConfig.debugPrefix) \(self.readableFormat())")
+        }
+    }
+    
+    internal func updateIfNeeded(description: FrameDescription) {
         
         let newConstraint = self
         
@@ -29,19 +38,19 @@ extension NSLayoutConstraint {
         // Find the matching constraint
         if let existingConstraint = existingConstraints.first(where: {
             // Ensure firstAnchor matches
-            $0.firstAnchor == newConstraint.firstAnchor &&
+            ($0.firstAnchor == newConstraint.firstAnchor) &&
             // Match secondAnchor or handle nil cases (like for width/height constraints)
             ($0.secondAnchor == newConstraint.secondAnchor || $0.secondAnchor == nil || newConstraint.secondAnchor == nil) &&
             // Ensure same relation (equal, greaterThanOrEqual, lessThanOrEqual)
-            $0.relation == newConstraint.relation &&
+            ($0.relation == newConstraint.relation) &&
             // Constraint should be active to update it
             $0.isActive
         }) {
             
             existingConstraint.constant = newConstraint.constant
             
-            if description.shouldDebugOnConsole {
-                debugPrint("AlignKit -- Constraint updated: \(self.readableFormat())")
+            if description.modificationConfig.shouldDebugOnConsole {
+                debugPrint("AlignKit -- \(description.modificationConfig.debugPrefix) \(self.readableFormat())")
             }
             
         } else {
@@ -51,7 +60,7 @@ extension NSLayoutConstraint {
         
     }
     
-    func removeIfNeeded(description: FrameDescription) {
+    internal func removeIfNeeded(description: FrameDescription) {
         
         let existingConstraints = description.proxyView.view.constraints
         let newConstraint = self
@@ -62,26 +71,24 @@ extension NSLayoutConstraint {
             ($0.relation == newConstraint.relation) &&
             ($0.multiplier == newConstraint.multiplier) &&
             ($0.priority == newConstraint.priority) &&
+            ($0.constant == newConstraint.constant) &&
             ($0.isActive)
         }) {
             
             // Deactivate the matching constraint
-            NSLayoutConstraint.deactivate([existingConstraint])
-            
-            if description.shouldDebugOnConsole {
-                debugPrint("AlignKit -- Constraint removed: \(self.readableFormat())")
-            }
+            self.deActivateIfNeeded(description: description)
             
         } else {
             fatalError("AlignKit: Trying to remove a constraint which doesn't exist for anchors: \(newConstraint.firstAnchor) and \(String(describing: newConstraint.secondAnchor))")
         }
         
     }
+    
 }
 
 extension NSLayoutConstraint {
     
-    func readableFormat() -> String {
+    internal func readableFormat() -> String {
         var description = ""
 
         if let firstItem = firstItem as? UIView {

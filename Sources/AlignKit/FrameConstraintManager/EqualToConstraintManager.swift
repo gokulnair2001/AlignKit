@@ -69,16 +69,19 @@ final internal class EqualToConstraintManager: FrameConstraintManager {
         let anchors = relativeAnchors.compactMap({ $0.extractDimension })
         
         if anchors.isEmpty {
+            
             let _constraint = proxyAnchor.constraint(equalToConstant:  frameDescription.constant.value(for: frameDescription.layoutAttribute))
             _constraint.priority = UILayoutPriority(frameDescription.priority.constraintPriorityValue)
             _constraint.identifier = frameDescription.label
            frameDescription.proxyView.addConstraints(constraint: _constraint)
+            
         } else {
             anchors.forEach({
                 let _constraint = proxyAnchor.constraint(equalTo: $0, multiplier:  frameDescription.multiplier.constraintMultiplierValue, constant:  frameDescription.constant.value(for: frameDescription.layoutAttribute))
                 _constraint.priority = UILayoutPriority(frameDescription.priority.constraintPriorityValue)
                 _constraint.identifier = frameDescription.label
                frameDescription.proxyView.addConstraints(constraint: _constraint)
+                
             })
         }
     }

@@ -20,8 +20,8 @@ internal class FrameDescription {
     var priority: ConstraintPriorityValue = 1000.0
     var label: String?
     
-    
-    var shouldDebugOnConsole: Bool = false
+    /// Constraint Builder Modifier Properties
+    var modificationConfig: ConstraintModificationConfig = ConstraintModificationConfig()
     
     @MainActor
     var constraint: NSLayoutConstraint? {
