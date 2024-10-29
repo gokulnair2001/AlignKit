@@ -8,8 +8,6 @@
 import UIKit
 
 
-internal typealias FrameConstraintView = UIView
-
 extension FrameConstraintView {
     
     public var alk: FrameConstraintComposer {
