@@ -6,7 +6,7 @@
 //
 
 
-internal struct FrameLayoutAttribute: OptionSet {
+internal struct FrameLayoutAttribute: OptionSet, Hashable {
     
     let rawValue: UInt
     
