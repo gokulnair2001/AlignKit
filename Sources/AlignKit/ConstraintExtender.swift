@@ -19,15 +19,6 @@ extension NSLayoutConstraint {
         }
     }
     
-    internal func deActivateIfNeeded(description: FrameDescription) {
-        
-        NSLayoutConstraint.deactivate([self])
-        
-        if description.modificationConfig.shouldDebugOnConsole {
-            debugPrint("AlignKit -- \(description.modificationConfig.debugPrefix) \(self.readableFormat())")
-        }
-    }
-    
     internal func updateIfNeeded(description: FrameDescription) {
         
         let newConstraint = self
@@ -76,7 +67,11 @@ extension NSLayoutConstraint {
         }) {
             
             // Deactivate the matching constraint
-            self.deActivateIfNeeded(description: description)
+            NSLayoutConstraint.deactivate([existingConstraint])
+            
+            if description.modificationConfig.shouldDebugOnConsole {
+                debugPrint("AlignKit -- \(description.modificationConfig.debugPrefix) \(self.readableFormat())")
+            }
             
         } else {
             fatalError("AlignKit: Trying to remove a constraint which doesn't exist for anchors: \(newConstraint.firstAnchor) and \(String(describing: newConstraint.secondAnchor))")
