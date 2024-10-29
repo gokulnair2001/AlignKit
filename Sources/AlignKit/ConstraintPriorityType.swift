@@ -9,7 +9,7 @@
 import UIKit
 
 
-internal struct ConstraintPriorityType: ExpressibleByFloatLiteral, Equatable, Strideable {
+public struct ConstraintPriorityType: ExpressibleByFloatLiteral, Equatable, Strideable {
     
     public typealias FloatLiteralType = Float
     
@@ -26,10 +26,10 @@ internal struct ConstraintPriorityType: ExpressibleByFloatLiteral, Equatable, St
     }
     
     /// ConstraintPriorityType
-    public static let required = ConstraintPriorityType(1000.0)
-    public static let high = ConstraintPriorityType(750.0)
-    public static let medium = ConstraintPriorityType(500.0)
-    public static let low = ConstraintPriorityType(250.0)
+    @MainActor public static let required = ConstraintPriorityType(1000.0)
+    @MainActor public static let high = ConstraintPriorityType(750.0)
+    @MainActor public static let medium = ConstraintPriorityType(500.0)
+    @MainActor public static let low = ConstraintPriorityType(250.0)
     
     
     /// Equatable Protocol conformance
@@ -38,11 +38,11 @@ internal struct ConstraintPriorityType: ExpressibleByFloatLiteral, Equatable, St
     }
     
     /// Strideable Protocol conformance
-    func advanced(by n: Stride) -> Self {
+    public func advanced(by n: Stride) -> Self {
         return ConstraintPriorityType(floatLiteral: value + n)
     }
     
-    func distance(to other: ConstraintPriorityType) -> Float {
+    public func distance(to other: ConstraintPriorityType) -> Float {
         return other.value - value
     }
     

@@ -62,6 +62,7 @@ extension NSLayoutConstraint {
             ($0.relation == newConstraint.relation) &&
             ($0.multiplier == newConstraint.multiplier) &&
             ($0.priority == newConstraint.priority) &&
+            ($0.constant == newConstraint.constant) &&
             ($0.isActive)
         }) {
             
@@ -77,6 +78,7 @@ extension NSLayoutConstraint {
         }
         
     }
+    
 }
 
 extension NSLayoutConstraint {

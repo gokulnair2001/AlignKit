@@ -17,7 +17,7 @@ public class PriorityFrameConstraintBuilder: FinalFrameConstraintBuilder {
     }
     
     @discardableResult
-    func priority(_ value: ConstraintPriorityType) -> FinalFrameConstraintBuilder {
+    public func priority(_ value: ConstraintPriorityType) -> FinalFrameConstraintBuilder {
         self.frameDescription.priority = value.value
         return self
     }
