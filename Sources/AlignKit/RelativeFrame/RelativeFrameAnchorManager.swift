@@ -9,18 +9,32 @@
 import UIKit
 
 
+/// `RelativeFrameAnchorManager` is a class responsible for providing relative layout anchors
+/// for a specified UIView.
+///
+/// - Note: This class should be used within the context of a UIView and provides an interface
+///   to retrieve anchors based on the specified `FrameLayoutAttribute`.
 internal class RelativeFrameAnchorManager {
-
+    
+    /// The view for which the relative anchors are managed.
     private let view: UIView
     
+    /// Initializes a new instance of `RelativeFrameAnchorManager` with the specified view.
+    ///
+    /// - Parameter view: The UIView for which to manage relative anchors.
     init(view: UIView) {
         self.view = view
     }
     
-    
+    /// Retrieves the relative anchors for the specified layout attribute.
+    ///
+    /// - Parameter anchor: The `FrameLayoutAttribute` specifying which anchor to retrieve.
+    /// - Returns: An array of `RelativeFrameLayoutAnchor` corresponding to the requested anchor.
+    ///
+    /// - Precondition: The `anchor` must be a valid `FrameLayoutAttribute`.
+    /// - FatalError: Triggers if an unknown modifier is accessed.
     @MainActor
     func getRelativeAnchor(_ anchor: FrameLayoutAttribute) -> [RelativeFrameLayoutAnchor] {
-
         switch anchor {
         case .top:
             return [view.topAnchor]
@@ -99,7 +113,6 @@ internal class RelativeFrameAnchorManager {
             
         default:
             fatalError("AlignKit: Unknown modifier accessed")
-            
         }
     }
 }
