@@ -10,23 +10,28 @@ import UIKit
 
 extension NSLayoutConstraint {
     
+    /// Activates the constraint if needed and logs the operation if debugging is enabled.
+    /// - Parameter description: A `FrameDescription` containing modification configurations.
     internal func activateIfNeeded(description: FrameDescription) {
-        
+        // Activate the constraint
         NSLayoutConstraint.activate([self])
         
+        // Log to console if debugging is enabled
         if description.modificationConfig.shouldDebugOnConsole {
             debugPrint("AlignKit -- \(description.modificationConfig.debugPrefix) \(self.readableFormat())")
         }
     }
     
+    /// Updates the constraint if it exists in the associated views and logs the operation if debugging is enabled.
+    /// - Parameter description: A `FrameDescription` containing the proxy view and modification configurations.
     internal func updateIfNeeded(description: FrameDescription) {
         
         let newConstraint = self
         
-        // Check the view's constraints and the superview's constraints
+        // Gather existing constraints from the view and its superview
         let existingConstraints = description.proxyView.view.constraints + (description.proxyView.view.superview?.constraints ?? [])
         
-        // Find the matching constraint
+        // Locate the existing matching constraint
         if let existingConstraint = existingConstraints.first(where: {
             // Ensure firstAnchor matches
             ($0.firstAnchor == newConstraint.firstAnchor) &&
@@ -37,25 +42,27 @@ extension NSLayoutConstraint {
             // Constraint should be active to update it
             $0.isActive
         }) {
-            
+            // Update the constant value of the existing constraint
             existingConstraint.constant = newConstraint.constant
             
+            // Log to console if debugging is enabled
             if description.modificationConfig.shouldDebugOnConsole {
                 debugPrint("AlignKit -- \(description.modificationConfig.debugPrefix) \(self.readableFormat())")
             }
-            
         } else {
-            
+            // Fatal error if trying to update a non-existing constraint
             fatalError("AlignKit: Trying to update a constraint which doesn't exist")
         }
-        
     }
     
+    /// Removes the constraint if it exists in the associated views and logs the operation if debugging is enabled.
+    /// - Parameter description: A `FrameDescription` containing the proxy view and modification configurations.
     internal func removeIfNeeded(description: FrameDescription) {
         
         let existingConstraints = description.proxyView.view.constraints
         let newConstraint = self
         
+        // Locate the existing matching constraint
         if let existingConstraint = existingConstraints.first(where: {
             ($0.firstAnchor == newConstraint.firstAnchor) &&
             ($0.secondAnchor == newConstraint.secondAnchor) &&
@@ -65,31 +72,35 @@ extension NSLayoutConstraint {
             ($0.constant == newConstraint.constant) &&
             ($0.isActive)
         }) {
-            
             // Deactivate the matching constraint
             NSLayoutConstraint.deactivate([existingConstraint])
             
+            // Log to console if debugging is enabled
             if description.modificationConfig.shouldDebugOnConsole {
                 debugPrint("AlignKit -- \(description.modificationConfig.debugPrefix) \(self.readableFormat())")
             }
-            
         } else {
+            // Fatal error if trying to remove a non-existing constraint
             fatalError("AlignKit: Trying to remove a constraint which doesn't exist for anchors: \(newConstraint.firstAnchor) and \(String(describing: newConstraint.secondAnchor))")
         }
-        
     }
-    
 }
+
+// MARK: - Readable Format for NSLayoutConstraint
 
 extension NSLayoutConstraint {
     
+    /// Generates a readable string format of the constraint for debugging purposes.
+    /// - Returns: A `String` representation of the constraint's details.
     internal func readableFormat() -> String {
         var description = ""
 
+        // Append the first item's accessibility identifier or default to "UIView"
         if let firstItem = firstItem as? UIView {
             description += "\(firstItem.accessibilityIdentifier ?? "UIView") "
         }
 
+        // Append the relation of the constraint
         switch relation {
         case .equal:
             description += "== "
@@ -101,10 +112,12 @@ extension NSLayoutConstraint {
             description += "?= "
         }
 
+        // Append the second item's accessibility identifier or default to "UIView"
         if let secondItem = secondItem as? UIView {
             description += "\(secondItem.accessibilityIdentifier ?? "UIView") "
         }
 
+        // Append the constant and multiplier details
         if secondItem == nil {
             description += "\(constant)"
         } else {
@@ -115,6 +128,7 @@ extension NSLayoutConstraint {
             description += " * \(multiplier)"
         }
 
+        // Append the priority details if not default
         if priority != .required {
             description += " @ \(priority.rawValue)"
         }
