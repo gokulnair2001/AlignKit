@@ -8,150 +8,136 @@
 import UIKit
 
 
+/// `FrameConstraintBuilder` is responsible for constructing and managing layout constraints
+/// for a given `FrameProxy`. It provides properties to access various layout anchors
+/// and methods to generate and manipulate constraints based on `FrameDescription`.
 public class FrameConstraintBuilder: FrameAnchorable {
     
+    /// The proxy view associated with this constraint builder.
     var proxyView: FrameProxy
+    
+    /// An array of `FrameDescription` objects that hold information about the constraints.
     var descriptions: [FrameDescription] = []
     
+    /// Initializes a new instance of `FrameConstraintBuilder` with the specified proxy view.
+    /// - Parameter proxyView: The `FrameProxy` associated with this builder.
     init(proxyView: FrameProxy) {
         self.proxyView = proxyView
     }
     
+    /// A typealias for `FrameConstraintBuilderExtended` to simplify access to anchor types.
     public typealias AnchorType = FrameConstraintBuilderExtended
     
-    public var top: AnchorType {
-        storeAnchor(.top)
-    }
+    // MARK: - Anchor Properties
+
+    /// The top anchor of the frame.
+    public var top: AnchorType { storeAnchor(.top) }
     
-    public var bottom: AnchorType {
-        storeAnchor(.bottom)
-    }
+    /// The bottom anchor of the frame.
+    public var bottom: AnchorType { storeAnchor(.bottom) }
     
-    public var left: AnchorType {
-        storeAnchor(.left)
-    }
+    /// The left anchor of the frame.
+    public var left: AnchorType { storeAnchor(.left) }
     
-    public var right: AnchorType {
-        storeAnchor(.right)
-    }
+    /// The right anchor of the frame.
+    public var right: AnchorType { storeAnchor(.right) }
     
-    public var leading: AnchorType {
-        storeAnchor(.leading)
-    }
+    /// The leading anchor of the frame.
+    public var leading: AnchorType { storeAnchor(.leading) }
     
-    public var trailing: AnchorType {
-        storeAnchor(.trailing)
-    }
+    /// The trailing anchor of the frame.
+    public var trailing: AnchorType { storeAnchor(.trailing) }
     
-    public var topMargin: AnchorType {
-        storeAnchor(.topMargin)
-    }
+    /// The top margin anchor of the frame.
+    public var topMargin: AnchorType { storeAnchor(.topMargin) }
     
-    public var bottomMargin: AnchorType {
-        storeAnchor(.bottomMargin)
-    }
+    /// The bottom margin anchor of the frame.
+    public var bottomMargin: AnchorType { storeAnchor(.bottomMargin) }
     
-    public var leftMargin: AnchorType {
-        storeAnchor(.leftMargin)
-    }
+    /// The left margin anchor of the frame.
+    public var leftMargin: AnchorType { storeAnchor(.leftMargin) }
     
-    public var rightMargin: AnchorType {
-        storeAnchor(.rightMargin)
-    }
+    /// The right margin anchor of the frame.
+    public var rightMargin: AnchorType { storeAnchor(.rightMargin) }
     
-    public var margins: AnchorType {
-        storeAnchor(.margins)
-    }
+    /// The margin anchors of the frame.
+    public var margins: AnchorType { storeAnchor(.margins) }
     
-    public var leadingMargin: AnchorType {
-        storeAnchor(.leadingMargin)
-    }
+    /// The leading margin anchor of the frame.
+    public var leadingMargin: AnchorType { storeAnchor(.leadingMargin) }
     
-    public var trailingMargin: AnchorType {
-        storeAnchor(.trailingMargin)
-    }
+    /// The trailing margin anchor of the frame.
+    public var trailingMargin: AnchorType { storeAnchor(.trailingMargin) }
     
-    public var width: AnchorType {
-        storeAnchor(.width)
-    }
+    /// The width anchor of the frame.
+    public var width: AnchorType { storeAnchor(.width) }
     
-    public var height: AnchorType {
-        storeAnchor(.height)
-    }
+    /// The height anchor of the frame.
+    public var height: AnchorType { storeAnchor(.height) }
     
-    public var lastBaseline: AnchorType {
-        storeAnchor(.lastBaseline)
-    }
+    /// The last baseline anchor of the frame.
+    public var lastBaseline: AnchorType { storeAnchor(.lastBaseline) }
     
-    public var firstBaseline: AnchorType {
-        storeAnchor(.firstBaseline)
-    }
+    /// The first baseline anchor of the frame.
+    public var firstBaseline: AnchorType { storeAnchor(.firstBaseline) }
     
-    public var edges: AnchorType {
-        storeAnchor(.edges)
-    }
+    /// The edges of the frame.
+    public var edges: AnchorType { storeAnchor(.edges) }
     
-    public var centre: AnchorType {
-        storeAnchor(.centre)
-    }
+    /// The center anchors of the frame.
+    public var centre: AnchorType { storeAnchor(.centre) }
     
-    public var centreWithInMargins: AnchorType {
-        storeAnchor(.centreWithInMargins)
-    }
+    /// The center anchors within margins of the frame.
+    public var centreWithInMargins: AnchorType { storeAnchor(.centreWithInMargins) }
     
-    public var size: AnchorType {
-        storeAnchor(.size)
-    }
+    /// The size anchors of the frame.
+    public var size: AnchorType { storeAnchor(.size) }
     
-    public var centreY: AnchorType {
-        storeAnchor(.centerY)
-    }
+    /// The center Y anchor of the frame.
+    public var centreY: AnchorType { storeAnchor(.centerY) }
     
-    public var centreX: AnchorType {
-        storeAnchor(.centerX)
-    }
+    /// The center X anchor of the frame.
+    public var centreX: AnchorType { storeAnchor(.centerX) }
     
-    public var centerXWithInMargin: AnchorType {
-        storeAnchor(.centerXWithInMargin)
-    }
+    /// The center X anchor within margins of the frame.
+    public var centerXWithInMargin: AnchorType { storeAnchor(.centerXWithInMargin) }
     
-    public var centerYWithInMargin: AnchorType {
-        storeAnchor(.centerYWithInMargin)
-    }
+    /// The center Y anchor within margins of the frame.
+    public var centerYWithInMargin: AnchorType { storeAnchor(.centerYWithInMargin) }
     
+    // MARK: - Private Methods
+    
+    /// Stores the given anchor in the descriptions array and returns an instance of `FrameConstraintBuilderExtended`.
+    /// - Parameter anchor: The `FrameLayoutAttribute` to store.
+    /// - Returns: An instance of `FrameConstraintBuilderExtended`.
     private func storeAnchor(_ anchor: FrameLayoutAttribute) -> FrameConstraintBuilderExtended {
         let description = FrameDescription(proxyView: self.proxyView, layoutAttribute: anchor)
         self.descriptions.append(description)
         return FrameConstraintBuilderExtended(description)
     }
     
+    // MARK: - Constraint Generation Methods
+    
+    /// Generates layout constraints based on the provided `FrameDescription`.
+    /// - Parameter frameDescription: The `FrameDescription` containing details for constraint generation.
+    /// - Returns: An array of `NSLayoutConstraint` generated from the description.
     @MainActor
     static func generateConstraints(frameDescription: FrameDescription) -> [NSLayoutConstraint] {
-        
         switch frameDescription.relativeConstraintType {
-            
         case .equalTo:
-            
             let constraintManager = EqualToConstraintManager(frameDescription: frameDescription)
             return constraintManager.generateConstraints(relativeAnchors: frameDescription.relativeAnchors)
-            
         case .lessThanOrEqualTo:
-            
             let constraintManager = LessThanOrEqualToConstraintManager(frameDescription: frameDescription)
             return constraintManager.generateConstraints(relativeAnchors: frameDescription.relativeAnchors)
-            
         case .greaterThanOrEqualTo:
-            
             let constraintManager = GreaterThanOrEqualToConstraintManager(frameDescription: frameDescription)
             return constraintManager.generateConstraints(relativeAnchors: frameDescription.relativeAnchors)
-            
-        case nil:
-            fatalError("AlignKit: Something unexpected happened")
-            break
         }
-        
     }
     
+    /// Activates constraints based on the provided `FrameDescription`.
+    /// - Parameter frameDescription: The `FrameDescription` containing details for activating constraints.
     @MainActor
     static func makeConstraints(frameDescription: FrameDescription) {
         let constraints = generateConstraints(frameDescription: frameDescription)
@@ -160,6 +146,8 @@ public class FrameConstraintBuilder: FrameAnchorable {
         }
     }
     
+    /// Updates constraints based on the provided `FrameDescription`.
+    /// - Parameter frameDescription: The `FrameDescription` containing details for updating constraints.
     @MainActor
     static func updateConstraints(frameDescription: FrameDescription) {
         let constraints = generateConstraints(frameDescription: frameDescription)
@@ -168,6 +156,8 @@ public class FrameConstraintBuilder: FrameAnchorable {
         }
     }
     
+    /// Removes constraints based on the provided `FrameDescription`.
+    /// - Parameter frameDescription: The `FrameDescription` containing details for removing constraints.
     @MainActor
     static func removeConstraints(frameDescription: FrameDescription) {
         let constraints = generateConstraints(frameDescription: frameDescription)
