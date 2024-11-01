@@ -1,2 +1,2 @@
 # AlignKit
-A NSLayoutConstraint wrapper
+Streamlined Constraint Management in UIKit
