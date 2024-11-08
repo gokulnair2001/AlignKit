@@ -80,7 +80,7 @@ You can use these modifiers instantly after chaining the `` UIKit/UIView/alk `` 
 
 ## Perfomance 
 
-Through performance testing, we've found that AlignKit is able to match the impressive results of NSLayoutConstraints, while providing a significantly more modern and intuitive API for developers to work with. In fact, our analysis has shown that AlignKit outperforms the leading market alternative, SnapKit, by an impressive 50% in frames per second (FPS) and 5% in CPU utilization.
+Through performance testing, we've found that AlignKit is able to match the impressive results of NSLayoutConstraints, while providing a significantly more modern and intuitive API for developers to work with. In fact, our analysis has shown that AlignKit outperforms the leading market alternative, SnapKit, by an impressive 50% in frames per second (FPS) and 5% reduction in CPU utilization.
 
 This means that you can now enjoy the benefits of a clean, streamlined approach to managing your layout constraints, without compromising on the performance that has made NSLayoutConstraints the gold standard. AlignKit truly offers the best of both worlds, empowering you to build fast, efficient, and visually stunning iOS apps.
 
