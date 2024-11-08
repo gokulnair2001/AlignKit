@@ -13,12 +13,13 @@ extension NSLayoutConstraint {
     /// Activates the constraint if needed and logs the operation if debugging is enabled.
     /// - Parameter description: A `FrameDescription` containing modification configurations.
     internal func activateIfNeeded(description: FrameDescription) {
+        
         // Activate the constraint
         NSLayoutConstraint.activate([self])
         
         // Log to console if debugging is enabled
         if description.modificationConfig.shouldDebugOnConsole {
-            debugPrint("AlignKit -- \(description.modificationConfig.debugPrefix) \(self.readableFormat())")
+            debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat())".highlightForDebug(.info))
         }
     }
     
@@ -29,7 +30,7 @@ extension NSLayoutConstraint {
         let newConstraint = self
         
         // Gather existing constraints from the view and its superview
-        let existingConstraints = description.proxyView.view.constraints + (description.proxyView.view.superview?.constraints ?? [])
+        let existingConstraints = ((description.proxyView.view.constraints).removeDuplicateConstraints() + (description.proxyView.view.superview?.constraints ?? []))
         
         // Locate the existing matching constraint
         if let existingConstraint = existingConstraints.first(where: {
@@ -40,18 +41,21 @@ extension NSLayoutConstraint {
             // Ensure same relation (equal, greaterThanOrEqual, lessThanOrEqual)
             ($0.relation == newConstraint.relation) &&
             // Constraint should be active to update it
-            $0.isActive
+            ($0.isActive)
         }) {
+            
             // Update the constant value of the existing constraint
             existingConstraint.constant = newConstraint.constant
             
             // Log to console if debugging is enabled
             if description.modificationConfig.shouldDebugOnConsole {
-                debugPrint("AlignKit -- \(description.modificationConfig.debugPrefix) \(self.readableFormat())")
+                debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat())".highlightForDebug(.info))
             }
+    
+            
         } else {
             // Fatal error if trying to update a non-existing constraint
-            fatalError("AlignKit: Trying to update a constraint which doesn't exist")
+            assertionFailure("AlignKit: Trying to update a constraint which doesn't exist")
         }
     }
     
@@ -77,8 +81,9 @@ extension NSLayoutConstraint {
             
             // Log to console if debugging is enabled
             if description.modificationConfig.shouldDebugOnConsole {
-                debugPrint("AlignKit -- \(description.modificationConfig.debugPrefix) \(self.readableFormat())")
+                debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat())".highlightForDebug(.info))
             }
+            
         } else {
             // Fatal error if trying to remove a non-existing constraint
             fatalError("AlignKit: Trying to remove a constraint which doesn't exist for anchors: \(newConstraint.firstAnchor) and \(String(describing: newConstraint.secondAnchor))")
@@ -136,3 +141,4 @@ extension NSLayoutConstraint {
         return description
     }
 }
+

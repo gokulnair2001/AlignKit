@@ -59,7 +59,7 @@ public class RelationalFrameConstraintBuilder {
     ///   - line: The line number where the constraint is being defined (default is the current line).
     /// - Returns: An instance of `ModifiableFrameConstraintBuilder` for further modification.
     @discardableResult
-    public func equalToConstant(_ constant: ConstraintConstantValue, _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
+    public func equalTo(_ constant: ConstraintConstantValue, _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
         
         self.frameDescription.relativeConstraintType = .equalTo
         self.frameDescription.constant = constant

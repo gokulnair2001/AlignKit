@@ -112,7 +112,8 @@ internal class RelativeFrameAnchorManager {
             return [view.widthAnchor, view.heightAnchor]
             
         default:
-            fatalError("AlignKit: Unknown modifier accessed")
+            assertionFailure("AlignKit: Unknown modifier accessed")
+            return []
         }
     }
 }

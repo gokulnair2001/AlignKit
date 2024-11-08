@@ -36,6 +36,7 @@ public class FrameConstraintComposer {
         closure(maker)
         
         if modificationConfigs.shouldGenerateConstraints {
+            
             for description in maker.descriptions {
                 FrameConstraintBuilder.makeConstraints(frameDescription: description)
             }
@@ -45,6 +46,9 @@ public class FrameConstraintComposer {
                     self.view.layoutIfNeeded()
                 }
             }
+            
+        } else {
+            debugPrint("ApplyIf condition unmet—constraint generation bypassed".highlightForDebug(.info))
         }
     }
     
@@ -60,6 +64,7 @@ public class FrameConstraintComposer {
         closure(maker)
         
         if modificationConfigs.shouldGenerateConstraints {
+           
             for description in maker.descriptions {
                 FrameConstraintBuilder.updateConstraints(frameDescription: description)
             }
@@ -69,6 +74,9 @@ public class FrameConstraintComposer {
                     self.view.superview?.layoutIfNeeded()
                 }
             }
+            
+        } else {
+            debugPrint("ApplyIf condition unmet—constraint generation bypassed".highlightForDebug(.info))
         }
     }
     
@@ -84,6 +92,7 @@ public class FrameConstraintComposer {
         closure(maker)
         
         if modificationConfigs.shouldGenerateConstraints {
+           
             for description in maker.descriptions {
                 FrameConstraintBuilder.removeConstraints(frameDescription: description)
             }
@@ -93,6 +102,9 @@ public class FrameConstraintComposer {
                     self.view.superview?.layoutIfNeeded()
                 }
             }
+            
+        } else {
+            debugPrint("ApplyIf condition unmet—constraint generation bypassed".highlightForDebug(.info))
         }
     }
     

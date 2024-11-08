@@ -82,7 +82,8 @@ extension FrameConstraintManager {
     internal func generateConstraints(relativeAnchors: [RelativeFrameLayoutAnchor]) -> [NSLayoutConstraint] {
         
         guard let superview = frameDescription.proxyView.view.superview else {
-            fatalError("View does not have a superview, file:\(frameDescription.sourceLocation?.file ?? "unknown") line:\(frameDescription.sourceLocation?.line ?? 0)")
+            assertionFailure("View does not have a superview, file:\(frameDescription.sourceLocation?.file ?? "unknown") line:\(frameDescription.sourceLocation?.line ?? 0)")
+            return []
         }
         
         // Anchor Mappings
