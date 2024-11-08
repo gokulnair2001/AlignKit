@@ -16,15 +16,15 @@ internal enum ConsoleDebugType: String {
 
 
 extension String {
+    
     /// Returns the string with provided debug type notation
     func highlightForDebug(prefix: String = "AlignKit --", _ type: ConsoleDebugType) -> String {
-       
-        if prefix.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            return "\(type.rawValue)\(prefix) \(self)"
-        }
         
-        return "\(type.rawValue) \(prefix) \(self)"
+        let trimmedPrefix = prefix.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        return "\(type.rawValue) \(trimmedPrefix.isEmpty ? "" : "\(trimmedPrefix) ")\(self)"
     }
+
 }
 
 
