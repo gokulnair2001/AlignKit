@@ -61,7 +61,8 @@ button.alk.removeConstraints { frame in
 }
 ```
 
-> ⚠️ **Warning**: Updating or Removing a constraint which is not added to element will cause assertionFailure
+> [!Warning]
+> Updating or Removing a constraint which is not added to element will cause assertionFailure
 
 ### Utility Methods
 
@@ -75,8 +76,8 @@ AlignKit also provides handy utility methods to assist with debugging and optimi
 With AlignKit, you get the power of NSLayoutConstraints combined with a modern, developer-friendly API. 
 You can use these modifiers instantly after chaining the `` UIKit/UIView/alk `` DSL.
 
-
-> 📒 **Remember**: AlignKit have a auto constraint sanitiser which sanitises constraints applied on any view by removing redundant constraints provided.
+> [!Note]
+> AlignKit have a auto constraint sanitiser which sanitises constraints applied on any view by removing redundant constraints provided.
 
 ## Perfomance 
 
