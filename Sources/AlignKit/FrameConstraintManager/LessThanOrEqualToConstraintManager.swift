@@ -105,17 +105,18 @@ final internal class LessThanOrEqualToConstraintManager: FrameConstraintManager 
                             proxyAnchor: NSLayoutDimension) {
         
         let anchors = relativeAnchors.compactMap({ $0.extractDimension })
+        let constant = frameDescription.constant.value(for: frameDescription.layoutAttribute)
         
         if anchors.isEmpty {
             // Direct constraints added if no relative anchors are provided
-            let _constraint = proxyAnchor.constraint(equalToConstant: frameDescription.constant.value(for: frameDescription.layoutAttribute))
+            let _constraint = proxyAnchor.constraint(equalToConstant: constant)
             _constraint.priority = UILayoutPriority(frameDescription.priority.constraintPriorityValue)
             _constraint.identifier = frameDescription.label
             frameDescription.proxyView.addConstraints(constraint: _constraint)
         } else {
             // Constraints added for each relative anchor with optional multiplier
             anchors.forEach({
-                let _constraint = proxyAnchor.constraint(lessThanOrEqualTo: $0, multiplier: frameDescription.multiplier.constraintMultiplierValue, constant: frameDescription.constant.value(for: frameDescription.layoutAttribute))
+                let _constraint = proxyAnchor.constraint(lessThanOrEqualTo: $0, multiplier: frameDescription.multiplier.constraintMultiplierValue, constant: constant)
                 _constraint.priority = UILayoutPriority(frameDescription.priority.constraintPriorityValue)
                 _constraint.identifier = frameDescription.label
                 frameDescription.proxyView.addConstraints(constraint: _constraint)
