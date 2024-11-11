@@ -69,23 +69,6 @@ button.alk.removeConstraints { frame in
 
 📌 This document is a guide that explains how to use AlignKit. You can also checks the AlignKit's [API documentation](https://alignkit-gokulnairs-projects.vercel.app/documentation/alignkit).
 
-### Utility Methods
-
-AlignKit also provides handy utility methods to assist with debugging and optimization:
-
-| API | Description |
-| -- | -- |
-| `debugPrintIf(_:_:)` | Debug prints the constraints in readble format along with the prefix, for a desired condtion |
-| `debugPrintWith(_:)` | Debug prints the constraints in readble format along with the prefix |
-| `animateWith(_:)` | Animate constraint changes with the provided time interval |
-| `applyIf(_:)` | Apply constraints on if the provided condition succeeds |
-
-With AlignKit, you get the power of NSLayoutConstraints combined with a modern, developer-friendly API. 
-You can use these modifiers instantly after chaining the `` UIKit/UIView/alk `` DSL.
-
-> [!Note]
-> AlignKit have a auto constraint sanitiser which sanitises constraints applied on any view by removing redundant constraints provided.
-
 ## Constraint Modifiers
 These are few chainable modifiers that can be applied on frame constraints.
 
@@ -100,6 +83,23 @@ These are few chainable modifiers that can be applied on frame constraints.
 | `labeled(_ label: String)` | Sets a label for the constraint, allowing for easier identification in debugging or logging |
 
 Go through the [documentation](https://alignkit-gokulnairs-projects.vercel.app/documentation/alignkit) to have a better understanding.
+
+### Utility Methods
+
+AlignKit also provides handy utility methods to assist with debugging and optimization:
+
+| API | Description |
+| -- | -- |
+| `debugPrintIf(_:_:)` | Debug prints the constraints in readble format along with the prefix, for a desired condtion |
+| `debugPrintWith(_:)` | Debug prints the constraints in readble format along with the prefix |
+| `animateWith(_:)` | Animate constraint changes with the provided time interval |
+| `applyIf(_:)` | Apply constraints on if the provided condition succeeds |
+
+With AlignKit, you get the power of NSLayoutConstraints combined with a modern, developer-friendly API. 
+You can use these modifiers instantly after chaining the [alk](Sources/AlignKit/Extensions/View+Extension.swift) DSL.
+
+> [!Note]
+> AlignKit have a auto constraint sanitiser which sanitises constraints applied on any view by removing redundant constraints provided.
 
 ## AlignKit's principles and philosophy
 
