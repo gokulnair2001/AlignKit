@@ -94,7 +94,7 @@ You can use these modifiers instantly after chaining the `` UIKit/UIView/alk `` 
 * AlignKit is incredibly fast, it's as faster as NSLayoutConstraints. See Performance.
 * The source code for chaining syntaxes are very much similar to SnpKit
   
-NOTE: Being very familiar with SnapKit, we have kept AlignKit syntanxes to be as similar as SnapKit(Along with some improved synatxes). 
+NOTE: Being very familiar with SnapKit, we have kept AlignKit syntanxes to be as similar as SnapKit(Along with some improved syntaxes). 
 
 ## AlignKit's Perfomance 
 
