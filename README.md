@@ -135,6 +135,7 @@ To integrate AlignKit into another Swift Package, add it as a dependency:
 ```
 
 # License
+
 AlignKit is available under MIT License
 
 Copyright (c) 2024 Gokul Nair
