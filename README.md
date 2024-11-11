@@ -82,7 +82,17 @@ You can use these modifiers instantly after chaining the `` UIKit/UIView/alk `` 
 > [!Note]
 > AlignKit have a auto constraint sanitiser which sanitises constraints applied on any view by removing redundant constraints provided.
 
-## Perfomance 
+## AlignKit's principles and philosophy
+
+* AlignKit layouting is is simple, powerful and fast.
+* AlignKit intention is to optimise the usage technique of NSLayoutConstraints. 
+* AlignKit syntax is concise and chainable.
+* AlignKit is incredibly fast, it's as faster as NSLayoutConstraints. See Performance.
+* The source code for chaining syntaxes are very much similar to SnpKit
+  
+NOTE: Being very familiar with SnapKit, we have kept AlignKit syntanxes to be as similar as SnapKit(Along with some improved synatxes). 
+
+## AlignKit's Perfomance 
 
 Through performance testing, we've found that AlignKit is able to match the impressive results of NSLayoutConstraints, while providing a significantly more modern and intuitive API for developers to work with. In fact, our analysis has shown that AlignKit outperforms the leading market alternative, SnapKit, by an impressive 50% in frames per second (FPS) and 5% reduction in CPU utilization.
 
@@ -93,3 +103,5 @@ Enjoy the benefits of a clean, streamlined approach to managing your layout cons
 |![FPS Stability](https://github.com/user-attachments/assets/11b9e4d8-cc78-4048-b86b-9d61ecedec4c) | ![CPU Utilisation](https://github.com/user-attachments/assets/0d64c7fe-17f6-494f-af20-5a0876175f3e) | 
 
 The following simulation was done on iPhone 13, running on iOS 18.1 with a testing procedure of same parameters
+
+
