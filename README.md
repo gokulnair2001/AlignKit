@@ -67,14 +67,18 @@ button.alk.removeConstraints { frame in
 > [!Warning]
 > Updating or Removing a constraint which is not added to element will cause assertionFailure
 
+📌 This document is a guide that explains how to use AlignKit. You can also checks the AlignKit's [API documentation](https://alignkit-gokulnairs-projects.vercel.app/documentation/alignkit).
+
 ### Utility Methods
 
 AlignKit also provides handy utility methods to assist with debugging and optimization:
 
-- `debugPrintIf(_:_:)` : Print with a condition
-- `debugPrintWith(_:)` : Print with a prefix
-- `animateWith(_:)` : Animate constraint changes
-- `applyIf(_:)` : Apply constraints conditionally
+| API | Description |
+| -- | -- |
+| `debugPrintIf(_:_:)` | Debug prints the constraints in readble format along with the prefix, for a desired condtion |
+| `debugPrintWith(_:)` | Debug prints the constraints in readble format along with the prefix |
+| `animateWith(_:)` | Animate constraint changes with the provided time interval |
+| `applyIf(_:)` | Apply constraints on if the provided condition succeeds |
 
 With AlignKit, you get the power of NSLayoutConstraints combined with a modern, developer-friendly API. 
 You can use these modifiers instantly after chaining the `` UIKit/UIView/alk `` DSL.
