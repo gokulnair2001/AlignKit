@@ -86,6 +86,21 @@ You can use these modifiers instantly after chaining the `` UIKit/UIView/alk `` 
 > [!Note]
 > AlignKit have a auto constraint sanitiser which sanitises constraints applied on any view by removing redundant constraints provided.
 
+## Constraint Modifiers
+These are few chainable modifiers that can be applied on frame constraints.
+
+| API | Description |
+| -- | -- |
+| `inset(_ constant: CGFloat)` | Sets an inset value for the constraint |
+| `offset(_ constant: CGFloat)` | Sets an offset value for the constraint, applying a negative constant |
+| `multiplier(_ constant: CGFloat)` | Sets a multiplier for the constraint |
+| `divider(_ constant: CGFloat)` | Sets a divider for the constraint by applying the reciprocal of the constant |
+| `priority(_ value: ConstraintPriorityValue)` | Sets the priority of the constraint using a `ConstraintPriorityValue` |
+| `priority(_ value: ConstraintPriorityType)` | Sets the priority of the constraint using a `ConstraintPriorityType` |
+| `labeled(_ label: String)` | Sets a label for the constraint, allowing for easier identification in debugging or logging |
+
+Go through the [documentation](https://alignkit-gokulnairs-projects.vercel.app/documentation/alignkit) to have a better understanding.
+
 ## AlignKit's principles and philosophy
 
 * AlignKit layouting is is simple, powerful and fast.
