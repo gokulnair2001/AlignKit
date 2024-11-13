@@ -70,7 +70,22 @@ button.alk.removeConstraints { frame in
 📌 This document is a guide that explains how to use AlignKit. You can also check the AlignKit's [API documentation](https://alignkit-gokulnairs-projects.vercel.app/documentation/alignkit).
 
 ## Constraint Modifiers
-These are few chainable modifiers that can be applied on frame constraints.
+These are various kinds of modifiers available in AlignKit to chain on, among them some types are
+
+### Relational Modifiers
+These modifiers are used to create relation among views.
+
+| API | Description |
+|-----|-------------|
+| `equalToSuperView()` | Specifies that the constraint should be equal to the superview's corresponding attribute. |
+| `equalTo(constant: ConstraintConstantValue)` | Specifies that the constraint should be equal to a constant value or relative anchor. |
+| `lessThanOrEqualToSuperView()` | Specifies that the constraint should be less than or equal to the superview's corresponding attribute. |
+| `lessThanOrEqualTo(constant: ConstraintConstantValue)` | Specifies that the constraint should be less than or equal to either given relative anchors or constant value. |
+| `greaterThanOrEqualToSuperView()` | Specifies that the constraint should be greater than or equal to the superview's corresponding attribute. |
+| `greaterThanOrEqualTo(constant: ConstraintConstantValue)` | Specifies that the constraint should be greater than or equal to either given relative anchors or constant value. |
+
+### Layout Modifiers
+These modifiers are used to enhance the layouting of each elemenent
 
 | API | Description |
 | -- | -- |
