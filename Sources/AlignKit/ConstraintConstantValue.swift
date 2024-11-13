@@ -23,6 +23,8 @@ extension CGFloat: ConstraintConstantValue { }
 extension CGPoint: ConstraintConstantValue { }
 extension CGSize: ConstraintConstantValue { }
 
+extension Array: ConstraintConstantValue where Element == RelativeFrameLayoutAnchor { }
+
 /// Extension on `ConstraintConstantValue` providing functionality to extract
 /// a `CGFloat` value based on the provided `FrameLayoutAttribute`.
 extension ConstraintConstantValue {
@@ -84,3 +86,4 @@ extension ConstraintConstantValue {
         return 0.0
     }
 }
+
