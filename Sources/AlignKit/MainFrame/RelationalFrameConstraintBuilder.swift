@@ -28,7 +28,7 @@ public class RelationalFrameConstraintBuilder {
     ///   - line: The line number where the constraint is being defined (default is the current line).
     /// - Returns: An instance of `ModifiableFrameConstraintBuilder` for further modification.
     @discardableResult
-    public func equalToSuperView(_ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
+    public func equalToSuperview(_ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
         
         self.frameDescription.relativeConstraintType = .equalTo
         self.frameDescription.sourceLocation = (file, line)
@@ -36,7 +36,7 @@ public class RelationalFrameConstraintBuilder {
         return ModifiableFrameConstraintBuilder(frameDescription: self.frameDescription)
     }
     
-    /// Specifies that the constraint should be equal to a constant value.
+    /// Specifies that the constraint should be equal to a constant value or relative anchor.
     /// - Parameters:
     ///   - constant: The constant value or relative anchor to set the constraint.
     ///   - file: The file name where the constraint is being defined (default is the current file).
@@ -63,7 +63,7 @@ public class RelationalFrameConstraintBuilder {
     ///   - line: The line number where the constraint is being defined (default is the current line).
     /// - Returns: An instance of `ModifiableFrameConstraintBuilder` for further modification.
     @discardableResult
-    public func lessThanOrEqualToSuperView(_ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
+    public func lessThanOrEqualToSuperview(_ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
         
         self.frameDescription.relativeConstraintType = .lessThanOrEqualTo
         self.frameDescription.sourceLocation = (file, line)
@@ -71,7 +71,7 @@ public class RelationalFrameConstraintBuilder {
         return ModifiableFrameConstraintBuilder(frameDescription: self.frameDescription)
     }
     
-    /// Specifies that the constraint should be less than or equal to the given relative anchors.
+    /// Specifies that the constraint should be less than or equal to either given relative anchors or constant value.
     /// - Parameters:
     ///   - constant: The constant value or relative anchor to set the constraint.
     ///   - file: The file name where the constraint is being defined (default is the current file).
@@ -98,7 +98,7 @@ public class RelationalFrameConstraintBuilder {
     ///   - line: The line number where the constraint is being defined (default is the current line).
     /// - Returns: An instance of `ModifiableFrameConstraintBuilder` for further modification.
     @discardableResult
-    public func greaterThanOrEqualToSuperView(_ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
+    public func greaterThanOrEqualToSuperview(_ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
         
         self.frameDescription.relativeConstraintType = .greaterThanOrEqualTo
         self.frameDescription.sourceLocation = (file, line)
@@ -106,7 +106,7 @@ public class RelationalFrameConstraintBuilder {
         return ModifiableFrameConstraintBuilder(frameDescription: self.frameDescription)
     }
     
-    /// Specifies that the constraint should be greater than or equal to the given relative anchors.
+    /// Specifies that the constraint should be greater than or equal to either given relative anchors or constant value.
     /// - Parameters:
     ///   - constant: The constant value or relative anchor to set the constraint.
     ///   - file: The file name where the constraint is being defined (default is the current file).
