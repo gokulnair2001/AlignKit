@@ -15,7 +15,7 @@ From simple alignment adjustments to sophisticated layout updates, AlignKit prov
 
 # Getting Started
 
-Streamlining layout constraints has never been easier. AlignKit allows you to manage your constraints with a clean and intuitive API, while delivering un-compromised performance that matches Apple's native NSLayoutConstraints [Check perfomance details](#alignkits-perfomance). 
+Streamlining layout constraints has never been easier. AlignKit allows you to manage your constraints with a clean and intuitive API, while delivering un-compromised performance that matches Apple's native NSLayoutConstraints [See perfomance details](#alignkits-perfomance). 
 
 ## Usage
 
