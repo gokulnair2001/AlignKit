@@ -103,8 +103,8 @@ You can use these modifiers instantly after chaining the [alk](Sources/AlignKit/
 
 ## AlignKit's principles and philosophy
 
-* AlignKit layouting is is simple, powerful and fast.
-* AlignKit intention is to optimise the usage technique of NSLayoutConstraints. 
+* AlignKit layouting is simple, powerful and fast.
+* AlignKit intention is to optimise the technique of using NSLayoutConstraints. 
 * AlignKit syntax is concise and chainable.
 * AlignKit is incredibly fast, it's as faster as NSLayoutConstraints. See Performance.
 * The source code for chaining syntaxes are very much similar to SnpKit
