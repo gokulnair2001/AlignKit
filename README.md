@@ -15,7 +15,7 @@ From simple alignment adjustments to sophisticated layout updates, AlignKit prov
 
 # Getting Started
 
-Streamlining layout constraints has never been easier. AlignKit allows you to manage your constraints with a clean and intuitive API, while delivering un-compromised performance that matches Apple's native NSLayoutConstraints [Check perfomance details](#AlignKitsPerfomance).
+Streamlining layout constraints has never been easier. AlignKit allows you to manage your constraints with a clean and intuitive API, while delivering un-compromised performance that matches Apple's native NSLayoutConstraints [Check perfomance details](#alignkits-perfomance). 
 
 ## Usage
 
@@ -106,7 +106,7 @@ You can use these modifiers instantly after chaining the [alk](Sources/AlignKit/
 * AlignKit layouting is simple, powerful and fast.
 * AlignKit intention is to optimise the technique of using NSLayoutConstraints. 
 * AlignKit syntax is concise and chainable.
-* AlignKit is incredibly fast, it's as faster as NSLayoutConstraints. [See Performance](#AlignKit's-Perfomance).
+* AlignKit is incredibly fast, it's as faster as NSLayoutConstraints. [See Performance](#alignkits-perfomance).
 * The source code for chaining syntaxes are very much similar to SnpKit
   
 NOTE: Being very familiar with SnapKit, we have kept AlignKit syntanxes to be as similar as SnapKit(Along with some improved syntaxes). 
