@@ -21,13 +21,13 @@ button.alk.makeConstraints { frame in
 }
 ```
 
-Adding relative constraints have just got easier, use the `relativeTo` modifier:
+Adding relative constraints have just got easier, use the same `equalTo` modifier:
 
 ```swift
 button.alk.makeConstraints { frame in
     frame.size.equalTo(90)
     frame.trailing.equalToSuperview()
-    frame.bottom.relativeTo(buttonOne.anchor.top).inset(16)
+    frame.bottom.equalTo(buttonOne.anchor.top).inset(16)
 }
 ```
 
