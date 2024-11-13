@@ -15,7 +15,7 @@ From simple alignment adjustments to sophisticated layout updates, AlignKit prov
 
 # Getting Started
 
-Streamlining layout constraints has never been easier thanks to AlignKit. This powerful framework allows you to manage your constraints with a clean and intuitive API, while delivering un-compromised performance that matches Apple's native NSLayoutConstraints.
+Streamlining layout constraints has never been easier. AlignKit allows you to manage your constraints with a clean and intuitive API, while delivering un-compromised performance that matches Apple's native NSLayoutConstraints((Check perfomance details))[].
 
 ## Usage
 
@@ -67,7 +67,7 @@ button.alk.removeConstraints { frame in
 > [!Warning]
 > Updating or Removing a constraint which is not added to element will cause assertionFailure
 
-📌 This document is a guide that explains how to use AlignKit. You can also checks the AlignKit's [API documentation](https://alignkit-gokulnairs-projects.vercel.app/documentation/alignkit).
+📌 This document is a guide that explains how to use AlignKit. You can also check the AlignKit's [API documentation](https://alignkit-gokulnairs-projects.vercel.app/documentation/alignkit).
 
 ## Constraint Modifiers
 These are few chainable modifiers that can be applied on frame constraints.
