@@ -127,9 +127,10 @@ The following simulation was done on iPhone 13, running on iOS 18.1 with a testi
 
 AlignKit is available via Swift Package Manager. 
 
-To integrate AlignKit into a Xcode target, use the ``` File -> Swift Packages -> Add Package Dependency``` menu item.
+To integrate AlignKit into a Xcode target, use the ```File -> Swift Packages -> Add Package Dependency``` menu item.
 
 To integrate AlignKit into another Swift Package, add it as a dependency:
+
 ```swift
 .package(url: "https://github.com/gokulnair2001/AlignKit", branch: "main")
 ```
