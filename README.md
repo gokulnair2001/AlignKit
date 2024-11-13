@@ -106,7 +106,7 @@ You can use these modifiers instantly after chaining the [alk](Sources/AlignKit/
 * AlignKit layouting is simple, powerful and fast.
 * AlignKit intention is to optimise the technique of using NSLayoutConstraints. 
 * AlignKit syntax is concise and chainable.
-* AlignKit is incredibly fast, it's as faster as NSLayoutConstraints. See Performance.
+* AlignKit is incredibly fast, it's as faster as NSLayoutConstraints. [See Performance](#AlignKit's-Perfomance ).
 * The source code for chaining syntaxes are very much similar to SnpKit
   
 NOTE: Being very familiar with SnapKit, we have kept AlignKit syntanxes to be as similar as SnapKit(Along with some improved syntaxes). 
