@@ -36,25 +36,9 @@ public class RelationalFrameConstraintBuilder {
         return ModifiableFrameConstraintBuilder(frameDescription: self.frameDescription)
     }
     
-    /// Specifies that the constraint should be equal to the given relative anchors.
-    /// - Parameters:
-    ///   - anchors: An array of `RelativeFrameLayoutAnchor` specifying the anchors to relate to.
-    ///   - file: The file name where the constraint is being defined (default is the current file).
-    ///   - line: The line number where the constraint is being defined (default is the current line).
-    /// - Returns: An instance of `ModifiableFrameConstraintBuilder` for further modification.
-    @discardableResult
-    public func relativeTo(_ anchors: [RelativeFrameLayoutAnchor], _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
-        
-        self.frameDescription.relativeConstraintType = .equalTo
-        self.frameDescription.relativeAnchors = anchors
-        self.frameDescription.sourceLocation = (file, line)
-
-        return ModifiableFrameConstraintBuilder(frameDescription: self.frameDescription)
-    }
-    
     /// Specifies that the constraint should be equal to a constant value.
     /// - Parameters:
-    ///   - constant: The constant value to set for the constraint.
+    ///   - constant: The constant value or relative anchor to set the constraint.
     ///   - file: The file name where the constraint is being defined (default is the current file).
     ///   - line: The line number where the constraint is being defined (default is the current line).
     /// - Returns: An instance of `ModifiableFrameConstraintBuilder` for further modification.
@@ -63,6 +47,9 @@ public class RelationalFrameConstraintBuilder {
         
         self.frameDescription.relativeConstraintType = .equalTo
         self.frameDescription.constant = constant
+        if let anchors = constant as? [RelativeFrameLayoutAnchor] {
+            self.frameDescription.relativeAnchors = anchors
+        }
         self.frameDescription.sourceLocation = (file, line)
         
         return ModifiableFrameConstraintBuilder(frameDescription: self.frameDescription)
@@ -86,15 +73,18 @@ public class RelationalFrameConstraintBuilder {
     
     /// Specifies that the constraint should be less than or equal to the given relative anchors.
     /// - Parameters:
-    ///   - anchors: An array of `RelativeFrameLayoutAnchor` specifying the anchors to relate to.
+    ///   - constant: The constant value or relative anchor to set the constraint.
     ///   - file: The file name where the constraint is being defined (default is the current file).
     ///   - line: The line number where the constraint is being defined (default is the current line).
     /// - Returns: An instance of `ModifiableFrameConstraintBuilder` for further modification.
     @discardableResult
-    public func lessThanOrEqualTo(_ anchors: [RelativeFrameLayoutAnchor], _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
+    public func lessThanOrEqualTo(_ constant: ConstraintConstantValue, _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
         
         self.frameDescription.relativeConstraintType = .lessThanOrEqualTo
-        self.frameDescription.relativeAnchors = anchors
+        self.frameDescription.constant = constant
+        if let anchors = constant as? [RelativeFrameLayoutAnchor] {
+            self.frameDescription.relativeAnchors = anchors
+        }
         self.frameDescription.sourceLocation = (file, line)
     
         return ModifiableFrameConstraintBuilder(frameDescription: self.frameDescription)
@@ -118,15 +108,18 @@ public class RelationalFrameConstraintBuilder {
     
     /// Specifies that the constraint should be greater than or equal to the given relative anchors.
     /// - Parameters:
-    ///   - anchors: An array of `RelativeFrameLayoutAnchor` specifying the anchors to relate to.
+    ///   - constant: The constant value or relative anchor to set the constraint.
     ///   - file: The file name where the constraint is being defined (default is the current file).
     ///   - line: The line number where the constraint is being defined (default is the current line).
     /// - Returns: An instance of `ModifiableFrameConstraintBuilder` for further modification.
     @discardableResult
-    public func greaterThanOrEqualTo(_ anchors: [RelativeFrameLayoutAnchor], _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
+    public func greaterThanOrEqualTo(_ constant: ConstraintConstantValue, _ file: String = #file, _ line: UInt = #line) -> ModifiableFrameConstraintBuilder {
         
         self.frameDescription.relativeConstraintType = .greaterThanOrEqualTo
-        self.frameDescription.relativeAnchors = anchors
+        self.frameDescription.constant = constant
+        if let anchors = constant as? [RelativeFrameLayoutAnchor] {
+            self.frameDescription.relativeAnchors = anchors
+        }
         self.frameDescription.sourceLocation = (file, line)
         
         return ModifiableFrameConstraintBuilder(frameDescription: self.frameDescription)
