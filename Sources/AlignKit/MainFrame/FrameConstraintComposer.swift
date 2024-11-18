@@ -38,6 +38,7 @@ public class FrameConstraintComposer {
         if modificationConfigs.shouldGenerateConstraints {
             
             for description in maker.descriptions {
+                description.modificationConfig = modificationConfigs
                 FrameConstraintBuilder.makeConstraints(frameDescription: description)
             }
             
@@ -66,6 +67,7 @@ public class FrameConstraintComposer {
         if modificationConfigs.shouldGenerateConstraints {
            
             for description in maker.descriptions {
+                description.modificationConfig = modificationConfigs
                 FrameConstraintBuilder.updateConstraints(frameDescription: description)
             }
             
@@ -94,6 +96,7 @@ public class FrameConstraintComposer {
         if modificationConfigs.shouldGenerateConstraints {
            
             for description in maker.descriptions {
+                description.modificationConfig = modificationConfigs
                 FrameConstraintBuilder.removeConstraints(frameDescription: description)
             }
             
