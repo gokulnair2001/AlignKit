@@ -56,12 +56,18 @@ button.alk.updateConstraints { frame in
 }
 ```
 
-And if you need to remove constraints, use the `alk.removeConstraints` method:
+If you need to remove a particular constraints, use the `alk.removeConstraints` method:
 
 ```swift
 button.alk.removeConstraints { frame in
     frame.width.equalTo(200)
 }
+```
+
+To remove all constraints related to a view, you can use the same method as described above, but without involving a closure.
+
+```swift
+button.alk.removeConstraints()
 ```
 
 > [!Warning]
