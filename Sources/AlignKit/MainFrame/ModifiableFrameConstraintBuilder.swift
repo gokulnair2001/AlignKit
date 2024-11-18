@@ -18,8 +18,8 @@ public class ModifiableFrameConstraintBuilder: PriorityFrameConstraintBuilder {
     /// - Parameter constant: The constant value to use as an inset.
     /// - Returns: The current instance of `ModifiableFrameConstraintBuilder` for chaining.
     @discardableResult
-    public func inset(_ constant: CGFloat) -> ModifiableFrameConstraintBuilder {
-        self.frameDescription.constant = constant
+    public func inset(_ constant: InsetConstantValue) -> ModifiableFrameConstraintBuilder {
+        self.frameDescription.constant = constant.value(for: frameDescription.layoutAttribute)
         return self
     }
     
@@ -27,8 +27,9 @@ public class ModifiableFrameConstraintBuilder: PriorityFrameConstraintBuilder {
     /// - Parameter constant: The constant value to use as an offset.
     /// - Returns: The current instance of `ModifiableFrameConstraintBuilder` for chaining.
     @discardableResult
-    public func offset(_ constant: CGFloat) -> ModifiableFrameConstraintBuilder {
-        self.frameDescription.constant = -constant
+    public func offset(_ constant: InsetConstantValue) -> ModifiableFrameConstraintBuilder {
+        let value = constant.value(for: frameDescription.layoutAttribute)
+        self.frameDescription.constant = value != 0 ? -value : value
         return self
     }
    
