@@ -36,7 +36,7 @@ public class ModifiableFrameConstraintBuilder: PriorityFrameConstraintBuilder {
     /// - Parameter constant: The constant value to use as a multiplier.
     /// - Returns: The current instance of `ModifiableFrameConstraintBuilder` for chaining.
     @discardableResult
-    public func multiplier(_ constant: CGFloat) -> ModifiableFrameConstraintBuilder {
+    public func multiplier(_ constant: ConstraintMultiplierValue) -> ModifiableFrameConstraintBuilder {
         self.frameDescription.multiplier = constant
         return self
     }
@@ -45,8 +45,8 @@ public class ModifiableFrameConstraintBuilder: PriorityFrameConstraintBuilder {
     /// - Parameter constant: The constant value to use as a divider.
     /// - Returns: The current instance of `ModifiableFrameConstraintBuilder` for chaining.
     @discardableResult
-    public func divider(_ constant: CGFloat) -> ModifiableFrameConstraintBuilder {
-        self.frameDescription.multiplier = 1 / constant
+    public func divider(_ constant: ConstraintMultiplierValue) -> ModifiableFrameConstraintBuilder {
+        self.frameDescription.multiplier = 1/constant.constraintMultiplierValue
         return self
     }
 }
