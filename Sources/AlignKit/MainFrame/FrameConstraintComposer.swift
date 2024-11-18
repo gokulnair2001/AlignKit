@@ -107,6 +107,15 @@ public class FrameConstraintComposer {
             debugPrint("ApplyIf condition unmet—constraint generation bypassed".highlightForDebug(.info))
         }
     }
+  
+    /// Removes all the constraints binned to the view
+    @MainActor
+    public func removeConstraints() {
+        
+        defer { resetModifierFlags() }
+        
+        FrameConstraintBuilder.removeConstraints(view: view)
+    }
     
     // MARK: - Private Methods
     

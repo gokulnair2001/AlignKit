@@ -19,7 +19,7 @@ extension NSLayoutConstraint {
         
         // Log to console if debugging is enabled
         if description.modificationConfig.shouldDebugOnConsole {
-            debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat())".highlightForDebug(.info))
+            debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat()) Activated".highlightForDebug(.info))
         }
     }
     
@@ -49,7 +49,7 @@ extension NSLayoutConstraint {
             
             // Log to console if debugging is enabled
             if description.modificationConfig.shouldDebugOnConsole {
-                debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat())".highlightForDebug(.info))
+                debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat()) Updated".highlightForDebug(.info))
             }
     
             
@@ -88,6 +88,14 @@ extension NSLayoutConstraint {
             // Fatal error if trying to remove a non-existing constraint
             fatalError("AlignKit: Trying to remove a constraint which doesn't exist for anchors: \(newConstraint.firstAnchor) and \(String(describing: newConstraint.secondAnchor))")
         }
+    }
+    
+    /// - Parameter description: A `FrameDescription` containing the proxy view and modification configurations.
+    internal func deactivateIfNeeded() {
+        
+        NSLayoutConstraint.deactivate([self])
+        
+        debugPrint("AlignKit: \(self.readableFormat()) Deactivated".highlightForDebug(.info))
     }
 }
 

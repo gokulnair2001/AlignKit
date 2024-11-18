@@ -165,4 +165,13 @@ public class FrameConstraintBuilder: FrameAnchorable {
             constraint.removeIfNeeded(description: frameDescription)
         }
     }
+    
+    /// Removes all the constraints based on the provided `view`.
+    @MainActor
+    static func removeConstraints(view: UIView) {
+        let constraints = view.constraints
+        for constraint in constraints {
+            constraint.deactivateIfNeeded()
+        }
+    }
 }
