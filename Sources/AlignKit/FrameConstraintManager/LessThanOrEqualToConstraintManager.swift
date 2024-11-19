@@ -13,7 +13,7 @@ import UIKit
 /// This class generates constraints to position and size a view with the `lessThanOrEqualTo` relation, ensuring the constrained view is
 /// positioned or sized no greater than specified values based on Y, X, or dimension anchors. Each constraint is configured with priority,
 /// constants, and optionally a multiplier for dimension constraints.
-@MainActor
+
 final internal class LessThanOrEqualToConstraintManager: FrameConstraintManager {
    
     /// The frame description containing metadata, such as constant values, priority, and labels for each constraint.

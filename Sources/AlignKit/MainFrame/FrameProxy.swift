@@ -30,7 +30,7 @@ internal class FrameProxy: ProxyView {
     /// Adds a single constraint to the list of managed constraints.
     ///
     /// - Parameter constraint: The NSLayoutConstraint instance to be added to the proxy.
-    @MainActor
+    
     internal func addConstraints(constraint: NSLayoutConstraint) {
         constraints.append(constraint)
         /// Sanitising constraints to remove the redundant ones

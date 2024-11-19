@@ -11,7 +11,7 @@ import UIKit
 extension Array where Element: NSLayoutConstraint {
     /// Removes duplicate constraints of the same type (e.g., height or width) with different constant values.
     /// Keeps only the most recently added constraint of each type.
-    @MainActor
+    
     func removeDuplicateConstraints() -> [NSLayoutConstraint] {
         // Dictionary to hold the latest constraint for each attribute (e.g., height, width)
         var latestConstraints: [NSLayoutConstraint.Attribute: NSLayoutConstraint] = [:]

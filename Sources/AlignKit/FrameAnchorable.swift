@@ -15,7 +15,7 @@ import UIKit
 /// which can be used to create and manage constraints in a flexible and type-safe manner.
 /// It is designed to work with any type that represents anchors, such as `NSLayoutXAxisAnchor`,
 /// `NSLayoutYAxisAnchor`, and `NSLayoutDimension`.
-@MainActor
+
 public protocol FrameAnchorable {
     
     /// The type of anchor that this protocol will provide.

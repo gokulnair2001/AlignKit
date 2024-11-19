@@ -33,7 +33,7 @@ internal class RelativeFrameAnchorManager {
     ///
     /// - Precondition: The `anchor` must be a valid `FrameLayoutAttribute`.
     /// - FatalError: Triggers if an unknown modifier is accessed.
-    @MainActor
+    
     func getRelativeAnchor(_ anchor: FrameLayoutAttribute) -> [RelativeFrameLayoutAnchor] {
         switch anchor {
         case .top:

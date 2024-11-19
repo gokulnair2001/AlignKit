@@ -32,7 +32,7 @@ public class FinalFrameConstraintBuilder {
     
     /// The current NSLayoutConstraint object associated with this builder.
     /// - Returns: The `NSLayoutConstraint` if it exists, otherwise `nil`.
-    @MainActor
+    
     var constraint: NSLayoutConstraint? {
         return frameDescription.constraint
     }

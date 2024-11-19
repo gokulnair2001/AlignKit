@@ -50,7 +50,7 @@ internal class FrameDescription {
     /// A computed property that generates the first NSLayoutConstraint based on the current frame description.
     ///
     /// - Returns: An optional NSLayoutConstraint generated from the frame description.
-    @MainActor
+    
     var constraint: NSLayoutConstraint? {
         return FrameConstraintBuilder.generateConstraints(frameDescription: self).first
     }

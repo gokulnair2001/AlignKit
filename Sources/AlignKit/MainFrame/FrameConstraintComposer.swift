@@ -26,7 +26,7 @@ public class FrameConstraintComposer {
     
     /// Creates and applies constraints to the view using a closure that specifies the layout.
     /// - Parameter closure: A closure that takes a `FrameConstraintBuilder` to define constraints.
-    @MainActor
+    
     public func makeConstraints(_ closure: (_ make: FrameConstraintBuilder) -> Void) {
         
         defer { resetModifierFlags() }
@@ -55,7 +55,7 @@ public class FrameConstraintComposer {
     
     /// Updates existing constraints for the view using a closure that specifies the layout.
     /// - Parameter closure: A closure that takes a `FrameConstraintBuilder` to define constraints.
-    @MainActor
+    
     public func updateConstraints(_ closure: (_ make: FrameConstraintBuilder) -> Void) {
         
         defer { resetModifierFlags() }
@@ -84,7 +84,7 @@ public class FrameConstraintComposer {
     
     /// Removes constraints from the view using a closure that specifies the layout.
     /// - Parameter closure: A closure that takes a `FrameConstraintBuilder` to define constraints.
-    @MainActor
+    
     public func removeConstraints(_ closure: (_ make: FrameConstraintBuilder) -> Void) {
         
         defer { resetModifierFlags() }
@@ -112,7 +112,7 @@ public class FrameConstraintComposer {
     }
   
     /// Removes all the constraints binned to the view
-    @MainActor
+    
     public func removeConstraints() {
         
         defer { resetModifierFlags() }
@@ -135,7 +135,7 @@ extension FrameConstraintComposer {
     /// Conditionally applies constraints based on the provided condition.
     /// - Parameter condition: A boolean indicating whether to generate constraints.
     /// - Returns: The current instance of `FrameConstraintComposer`.
-    @MainActor
+    
     public func applyIf(_ condition: Bool) -> Self {
         self.modificationConfigs.shouldGenerateConstraints = condition
         return self
@@ -146,7 +146,7 @@ extension FrameConstraintComposer {
     ///   - condition: A boolean indicating whether to debug print to the console.
     ///   - prefix: An optional prefix for debug output.
     /// - Returns: The current instance of `FrameConstraintComposer`.
-    @MainActor
+    
     public func debugPrintIf(_ condition: Bool, _ prefix: String = "") -> Self {
         self.modificationConfigs.shouldDebugOnConsole = condition
         self.modificationConfigs.debugPrefix = prefix
@@ -156,7 +156,7 @@ extension FrameConstraintComposer {
     /// Enables debug printing with a specified prefix.
     /// - Parameter prefix: A prefix for debug output.
     /// - Returns: The current instance of `FrameConstraintComposer`.
-    @MainActor
+    
     public func debugPrintWith(_ prefix: String = "") -> Self {
         self.modificationConfigs.shouldDebugOnConsole = true
         self.modificationConfigs.debugPrefix = prefix

@@ -8,7 +8,7 @@
 import UIKit
 
 
-@MainActor
+
 /// A protocol defining the management of frame constraints for a view.
 ///
 /// This protocol is responsible for generating and adding various types of layout constraints

@@ -12,7 +12,7 @@ import UIKit
 ///
 /// This class generates constraints to position and size a view based on specified anchors for X, Y, and dimension axes,
 /// using the `equalTo` relation. Each constraint is configured with priority, constants, and optionally a multiplier for dimension constraints.
-@MainActor
+
 final internal class EqualToConstraintManager: FrameConstraintManager {
     
     /// The frame description containing metadata such as constant values, priority, and labels for each constraint.

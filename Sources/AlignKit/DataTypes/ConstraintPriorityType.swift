@@ -41,16 +41,16 @@ public struct ConstraintPriorityType: ExpressibleByFloatLiteral, Equatable, Stri
     }
     
     /// A constant representing the required priority value (1000.0).
-    @MainActor public static let required = ConstraintPriorityType(1000.0)
+     public static let required = ConstraintPriorityType(1000.0)
     
     /// A constant representing the high priority value (750.0).
-    @MainActor public static let high = ConstraintPriorityType(750.0)
+     public static let high = ConstraintPriorityType(750.0)
     
     /// A constant representing the medium priority value (500.0).
-    @MainActor public static let medium = ConstraintPriorityType(500.0)
+     public static let medium = ConstraintPriorityType(500.0)
     
     /// A constant representing the low priority value (250.0).
-    @MainActor public static let low = ConstraintPriorityType(250.0)
+     public static let low = ConstraintPriorityType(250.0)
     
     /// Compares two instances of `ConstraintPriorityType` for equality.
     ///

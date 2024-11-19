@@ -121,7 +121,7 @@ public class FrameConstraintBuilder: FrameAnchorable {
     /// Generates layout constraints based on the provided `FrameDescription`.
     /// - Parameter frameDescription: The `FrameDescription` containing details for constraint generation.
     /// - Returns: An array of `NSLayoutConstraint` generated from the description.
-    @MainActor
+    
     static func generateConstraints(frameDescription: FrameDescription) -> [NSLayoutConstraint] {
         switch frameDescription.relativeConstraintType {
         case .equalTo:
@@ -138,7 +138,7 @@ public class FrameConstraintBuilder: FrameAnchorable {
     
     /// Activates constraints based on the provided `FrameDescription`.
     /// - Parameter frameDescription: The `FrameDescription` containing details for activating constraints.
-    @MainActor
+    
     static func makeConstraints(frameDescription: FrameDescription) {
         let constraints = generateConstraints(frameDescription: frameDescription)
         for constraint in constraints {
@@ -148,7 +148,7 @@ public class FrameConstraintBuilder: FrameAnchorable {
     
     /// Updates constraints based on the provided `FrameDescription`.
     /// - Parameter frameDescription: The `FrameDescription` containing details for updating constraints.
-    @MainActor
+    
     static func updateConstraints(frameDescription: FrameDescription) {
         let constraints = generateConstraints(frameDescription: frameDescription)
         for constraint in constraints {
@@ -158,7 +158,7 @@ public class FrameConstraintBuilder: FrameAnchorable {
     
     /// Removes constraints based on the provided `FrameDescription`.
     /// - Parameter frameDescription: The `FrameDescription` containing details for removing constraints.
-    @MainActor
+    
     static func removeConstraints(frameDescription: FrameDescription) {
         let constraints = generateConstraints(frameDescription: frameDescription)
         for constraint in constraints {
@@ -167,7 +167,7 @@ public class FrameConstraintBuilder: FrameAnchorable {
     }
     
     /// Removes all the constraints based on the provided `view`.
-    @MainActor
+    
     static func removeConstraints(view: UIView) {
         let constraints = view.constraints
         for constraint in constraints {
