@@ -30,7 +30,7 @@ extension NSLayoutConstraint {
         let newConstraint = self
         
         // Gather existing constraints from the view and its superview
-        let existingConstraints = (description.proxyView.view.constraints).removeDuplicateConstraints() ?? []
+        let existingConstraints = ((description.proxyView.view.constraints).removeDuplicateConstraints() + (description.proxyView.view.superview?.constraints ?? []))
         
         // Locate the existing matching constraint
         if let existingConstraint = existingConstraints.first(where: {
