@@ -6,7 +6,7 @@
 //
 
 import UIKit
-    
+
 
 /// `FrameDescription` encapsulates the properties and configuration needed to create and manage layout constraints for a `FrameProxy`.
 ///
@@ -40,6 +40,9 @@ internal class FrameDescription {
     
     /// An optional label for identifying the constraint in debugging or logging.
     var label: String?
+    
+    /// An optional flag which keeps track of the current frame modifier type(Used in constrain generation)
+    var frameModifierType: FrameModifierType? = nil
     
     /// Configuration for modifying the constraint builder operation.
     var modificationConfig: ConstraintModificationConfig = ConstraintModificationConfig()

@@ -95,7 +95,7 @@ extension NSLayoutConstraint {
         
         NSLayoutConstraint.deactivate([self])
         
-        debugPrint("AlignKit: \(self.readableFormat()) Deactivated".highlightForDebug(.info))
+        debugPrint("\(self.readableFormat()) Deactivated".highlightForDebug(.info))
     }
 }
 

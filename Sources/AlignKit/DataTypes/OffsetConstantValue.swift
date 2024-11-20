@@ -1,5 +1,5 @@
 //
-//  InsetConstantValue.swift
+//  OffsetConstantValue.swift
 //  AlignKit
 //
 //  Created by Gokul Nair(Work) on 18/11/24.
@@ -8,23 +8,24 @@
 import UIKit
 
 
-/// `InsetConstantValue` is a protocol that defines a type that can represent
-/// constant values used in inset constraints. It allows different numeric types
+/// `OffsetConstantValue` is a protocol that defines a type that can represent
+/// constant values used in offset constraints. It allows different numeric types
 /// to be treated uniformly as constraint constants.
-public protocol InsetConstantValue { }
+public protocol OffsetConstantValue: ConstraintConstantValue { }
 
 /// Extensions that allow various numeric types to conform to `InsetConstantValue`.
-extension Int: InsetConstantValue { }
-extension UInt: InsetConstantValue { }
-extension Float: InsetConstantValue { }
-extension Double: InsetConstantValue { }
-extension CGFloat: InsetConstantValue { }
-extension CGPoint: InsetConstantValue { }
-extension CGSize: InsetConstantValue { }
+extension Int: OffsetConstantValue { }
+extension UInt: OffsetConstantValue { }
+extension Float: OffsetConstantValue { }
+extension Double: OffsetConstantValue { }
+extension CGFloat: OffsetConstantValue { }
+extension CGPoint: OffsetConstantValue { }
+extension CGSize: OffsetConstantValue { }
 
-/// Extension on `ConstraintConstantValue` providing functionality to extract
+
+/// Extension on `OffsetConstantValue` providing functionality to extract
 /// a `CGFloat` value based on the provided `FrameLayoutAttribute`.
-extension InsetConstantValue {
+extension OffsetConstantValue {
     
     /// Retrieves a `CGFloat` value based on the conforming type and the specified layout attribute.
     /// - Parameter frameLayoutAttribute: The layout attribute for which the value is required.

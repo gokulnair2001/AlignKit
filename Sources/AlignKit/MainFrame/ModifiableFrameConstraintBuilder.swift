@@ -19,6 +19,7 @@ public class ModifiableFrameConstraintBuilder: PriorityFrameConstraintBuilder {
     /// - Returns: The current instance of `ModifiableFrameConstraintBuilder` for chaining.
     @discardableResult
     public func inset(_ constant: InsetConstantValue) -> ModifiableFrameConstraintBuilder {
+        self.frameDescription.frameModifierType = .inset
         self.frameDescription.constant = constant.value(for: frameDescription.layoutAttribute)
         return self
     }
@@ -27,9 +28,9 @@ public class ModifiableFrameConstraintBuilder: PriorityFrameConstraintBuilder {
     /// - Parameter constant: The constant value to use as an offset.
     /// - Returns: The current instance of `ModifiableFrameConstraintBuilder` for chaining.
     @discardableResult
-    public func offset(_ constant: InsetConstantValue) -> ModifiableFrameConstraintBuilder {
-        let value = constant.value(for: frameDescription.layoutAttribute)
-        self.frameDescription.constant = value != 0 ? -value : value
+    public func offset(_ constant: OffsetConstantValue) -> ModifiableFrameConstraintBuilder {
+        self.frameDescription.frameModifierType = .offset
+        self.frameDescription.constant = constant.value(for: frameDescription.layoutAttribute)
         return self
     }
    
@@ -38,6 +39,7 @@ public class ModifiableFrameConstraintBuilder: PriorityFrameConstraintBuilder {
     /// - Returns: The current instance of `ModifiableFrameConstraintBuilder` for chaining.
     @discardableResult
     public func multiplier(_ constant: ConstraintMultiplierValue) -> ModifiableFrameConstraintBuilder {
+        self.frameDescription.frameModifierType = .multiplier
         self.frameDescription.multiplier = constant
         return self
     }
@@ -47,6 +49,7 @@ public class ModifiableFrameConstraintBuilder: PriorityFrameConstraintBuilder {
     /// - Returns: The current instance of `ModifiableFrameConstraintBuilder` for chaining.
     @discardableResult
     public func divider(_ constant: ConstraintMultiplierValue) -> ModifiableFrameConstraintBuilder {
+        self.frameDescription.frameModifierType = .divider
         self.frameDescription.multiplier = 1/constant.constraintMultiplierValue
         return self
     }

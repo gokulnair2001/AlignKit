@@ -90,19 +90,19 @@ extension FrameConstraintManager {
         let anchorMappings: AnchorMapping = [
             /// Normal Anchors
             .top: .yAxis(proxy: frameDescription.proxyView.view.topAnchor, superview: superview.topAnchor, negate: false),
-            .bottom: .yAxis(proxy: frameDescription.proxyView.view.bottomAnchor, superview: superview.bottomAnchor, negate: true),
+            .bottom: .yAxis(proxy: frameDescription.proxyView.view.bottomAnchor, superview: superview.bottomAnchor, negate: (frameDescription.frameModifierType == .inset)),
             .left: .xAxis(proxy: frameDescription.proxyView.view.leftAnchor, superview: superview.leftAnchor, negate: false),
-            .right: .xAxis(proxy: frameDescription.proxyView.view.rightAnchor, superview: superview.rightAnchor, negate: true),
+            .right: .xAxis(proxy: frameDescription.proxyView.view.rightAnchor, superview: superview.rightAnchor, negate: (frameDescription.frameModifierType == .inset)),
             .leading: .xAxis(proxy: frameDescription.proxyView.view.leadingAnchor, superview: superview.leadingAnchor, negate: false),
-            .trailing: .xAxis(proxy: frameDescription.proxyView.view.trailingAnchor, superview: superview.trailingAnchor, negate: true),
+            .trailing: .xAxis(proxy: frameDescription.proxyView.view.trailingAnchor, superview: superview.trailingAnchor, negate: (frameDescription.frameModifierType == .inset)),
             
             /// Marginal Anchors
             .topMargin: .yAxis(proxy: frameDescription.proxyView.view.topAnchor, superview: superview.layoutMarginsGuide.topAnchor, negate: false),
-            .bottomMargin: .yAxis(proxy: frameDescription.proxyView.view.bottomAnchor, superview: superview.layoutMarginsGuide.bottomAnchor, negate: true),
+            .bottomMargin: .yAxis(proxy: frameDescription.proxyView.view.bottomAnchor, superview: superview.layoutMarginsGuide.bottomAnchor, negate: (frameDescription.frameModifierType == .inset)),
             .leftMargin: .xAxis(proxy: frameDescription.proxyView.view.leftAnchor, superview: superview.layoutMarginsGuide.leftAnchor, negate: false),
-            .rightMargin: .xAxis(proxy: frameDescription.proxyView.view.rightAnchor, superview: superview.layoutMarginsGuide.rightAnchor, negate: true),
+            .rightMargin: .xAxis(proxy: frameDescription.proxyView.view.rightAnchor, superview: superview.layoutMarginsGuide.rightAnchor, negate: (frameDescription.frameModifierType == .inset)),
             .leadingMargin: .xAxis(proxy: frameDescription.proxyView.view.leadingAnchor, superview: superview.layoutMarginsGuide.leadingAnchor, negate: false),
-            .trailingMargin: .xAxis(proxy: frameDescription.proxyView.view.trailingAnchor, superview: superview.layoutMarginsGuide.trailingAnchor, negate: true),
+            .trailingMargin: .xAxis(proxy: frameDescription.proxyView.view.trailingAnchor, superview: superview.layoutMarginsGuide.trailingAnchor, negate: (frameDescription.frameModifierType == .inset)),
             
             /// Dimensional Anchors
             .width: .dimension(proxy: frameDescription.proxyView.view.widthAnchor),
