@@ -10,27 +10,16 @@ import UIKit
 
 extension NSLayoutConstraint {
     
-    /// Ensures constraint operations are performed on the main thread
-     private func ensureMainThread(operation: @escaping () -> Void) {
-         if Thread.isMainThread {
-             operation()
-         } else {
-             DispatchQueue.main.sync(execute: operation)
-         }
-     }
-    
     /// Activates the constraint if needed and logs the operation if debugging is enabled.
     /// - Parameter description: A `FrameDescription` containing modification configurations.
     internal func activateIfNeeded(description: FrameDescription) {
         
-        ensureMainThread { [self] in
-            // Activate the constraint
-            NSLayoutConstraint.activate([self])
-            
-            // Log to console if debugging is enabled
-            if description.modificationConfig.shouldDebugOnConsole {
-                debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat()) Activated".highlightForDebug(.info))
-            }
+        // Activate the constraint
+        NSLayoutConstraint.activate([self])
+        
+        // Log to console if debugging is enabled
+        if description.modificationConfig.shouldDebugOnConsole {
+            debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat()) Activated".highlightForDebug(.info))
         }
     }
     
@@ -40,35 +29,33 @@ extension NSLayoutConstraint {
         
         let newConstraint = self
         
-        ensureMainThread { [self] in
-            // Gather existing constraints from the view and its superview
-            let existingConstraints = ((description.proxyView.view.constraints).removeDuplicateConstraints() + (description.proxyView.view.superview?.constraints ?? []))
+        // Gather existing constraints from the view and its superview
+        let existingConstraints = ((description.proxyView.view.constraints).removeDuplicateConstraints() + (description.proxyView.view.superview?.constraints ?? []))
+        
+        // Locate the existing matching constraint
+        if let existingConstraint = existingConstraints.first(where: {
+            // Ensure firstAnchor matches
+            ($0.firstAnchor == newConstraint.firstAnchor) &&
+            // Match secondAnchor or handle nil cases (like for width/height constraints)
+            ($0.secondAnchor == newConstraint.secondAnchor || $0.secondAnchor == nil || newConstraint.secondAnchor == nil) &&
+            // Ensure same relation (equal, greaterThanOrEqual, lessThanOrEqual)
+            ($0.relation == newConstraint.relation) &&
+            // Constraint should be active to update it
+            ($0.isActive)
+        }) {
             
-            // Locate the existing matching constraint
-            if let existingConstraint = existingConstraints.first(where: {
-                // Ensure firstAnchor matches
-                ($0.firstAnchor == newConstraint.firstAnchor) &&
-                // Match secondAnchor or handle nil cases (like for width/height constraints)
-                ($0.secondAnchor == newConstraint.secondAnchor || $0.secondAnchor == nil || newConstraint.secondAnchor == nil) &&
-                // Ensure same relation (equal, greaterThanOrEqual, lessThanOrEqual)
-                ($0.relation == newConstraint.relation) &&
-                // Constraint should be active to update it
-                ($0.isActive)
-            }) {
-                
-                // Update the constant value of the existing constraint
-                existingConstraint.constant = newConstraint.constant
-                
-                // Log to console if debugging is enabled
-                if description.modificationConfig.shouldDebugOnConsole {
-                    debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat()) Updated".highlightForDebug(.info))
-                }
-                
-                
-            } else {
-                // Fatal error if trying to update a non-existing constraint
-                assertionFailure("AlignKit: Trying to update a constraint which doesn't exist")
+            // Update the constant value of the existing constraint
+            existingConstraint.constant = newConstraint.constant
+            
+            // Log to console if debugging is enabled
+            if description.modificationConfig.shouldDebugOnConsole {
+                debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat()) Updated".highlightForDebug(.info))
             }
+    
+            
+        } else {
+            // Fatal error if trying to update a non-existing constraint
+            assertionFailure("AlignKit: Trying to update a constraint which doesn't exist")
         }
     }
     
@@ -79,40 +66,36 @@ extension NSLayoutConstraint {
         let existingConstraints = description.proxyView.view.constraints
         let newConstraint = self
         
-        ensureMainThread { [self] in
-            // Locate the existing matching constraint
-            if let existingConstraint = existingConstraints.first(where: {
-                ($0.firstAnchor == newConstraint.firstAnchor) &&
-                ($0.secondAnchor == newConstraint.secondAnchor) &&
-                ($0.relation == newConstraint.relation) &&
-                ($0.multiplier == newConstraint.multiplier) &&
-                ($0.priority == newConstraint.priority) &&
-                ($0.constant == newConstraint.constant) &&
-                ($0.isActive)
-            }) {
-                // Deactivate the matching constraint
-                NSLayoutConstraint.deactivate([existingConstraint])
-                
-                // Log to console if debugging is enabled
-                if description.modificationConfig.shouldDebugOnConsole {
-                    debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat())".highlightForDebug(.info))
-                }
-                
-            } else {
-                // Fatal error if trying to remove a non-existing constraint
-                fatalError("AlignKit: Trying to remove a constraint which doesn't exist for anchors: \(newConstraint.firstAnchor) and \(String(describing: newConstraint.secondAnchor))")
+        // Locate the existing matching constraint
+        if let existingConstraint = existingConstraints.first(where: {
+            ($0.firstAnchor == newConstraint.firstAnchor) &&
+            ($0.secondAnchor == newConstraint.secondAnchor) &&
+            ($0.relation == newConstraint.relation) &&
+            ($0.multiplier == newConstraint.multiplier) &&
+            ($0.priority == newConstraint.priority) &&
+            ($0.constant == newConstraint.constant) &&
+            ($0.isActive)
+        }) {
+            // Deactivate the matching constraint
+            NSLayoutConstraint.deactivate([existingConstraint])
+            
+            // Log to console if debugging is enabled
+            if description.modificationConfig.shouldDebugOnConsole {
+                debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat())".highlightForDebug(.info))
             }
+            
+        } else {
+            // Fatal error if trying to remove a non-existing constraint
+            fatalError("AlignKit: Trying to remove a constraint which doesn't exist for anchors: \(newConstraint.firstAnchor) and \(String(describing: newConstraint.secondAnchor))")
         }
     }
     
     /// - Parameter description: A `FrameDescription` containing the proxy view and modification configurations.
     internal func deactivateIfNeeded() {
         
-        ensureMainThread { [self] in
-            NSLayoutConstraint.deactivate([self])
-            
-            debugPrint("\(self.readableFormat()) Deactivated".highlightForDebug(.info))
-        }
+        NSLayoutConstraint.deactivate([self])
+        
+        debugPrint("\(self.readableFormat()) Deactivated".highlightForDebug(.info))
     }
 }
 
