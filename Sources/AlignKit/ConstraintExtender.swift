@@ -38,36 +38,74 @@ extension NSLayoutConstraint {
     /// - Parameter description: A `FrameDescription` containing the proxy view and modification configurations.
     internal func updateIfNeeded(description: FrameDescription) {
         
-        let newConstraint = self
+//        let newConstraint = self
+//        
+//        ensureMainThread { [self] in
+//            // Gather existing constraints from the view and its superview
+//            let existingConstraints = ((description.proxyView.view.constraints).removeDuplicateConstraints() + (description.proxyView.view.superview?.constraints ?? []))
+//            
+//            // Locate the existing matching constraint
+//            if let existingConstraint = existingConstraints.first(where: {
+//                // Ensure firstAnchor matches
+//                ($0.firstAnchor == newConstraint.firstAnchor) &&
+//                // Match secondAnchor or handle nil cases (like for width/height constraints)
+//                ($0.secondAnchor == newConstraint.secondAnchor || $0.secondAnchor == nil || newConstraint.secondAnchor == nil) &&
+//                // Ensure same relation (equal, greaterThanOrEqual, lessThanOrEqual)
+//                ($0.relation == newConstraint.relation) &&
+//                // Constraint should be active to update it
+//                ($0.isActive)
+//            }) {
+//                
+//                // Update the constant value of the existing constraint
+//                existingConstraint.constant = newConstraint.constant
+//                
+//                // Log to console if debugging is enabled
+//                if description.modificationConfig.shouldDebugOnConsole {
+//                    debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat()) Updated".highlightForDebug(.info))
+//                }
+//                
+//                
+//            } else {
+//                // Fatal error if trying to update a non-existing constraint
+//                assertionFailure("AlignKit: Trying to update a constraint which doesn't exist")
+//            }
         
+        
+        let newConstraint = self
+
         ensureMainThread { [self] in
-            // Gather existing constraints from the view and its superview
-            let existingConstraints = ((description.proxyView.view.constraints).removeDuplicateConstraints() + (description.proxyView.view.superview?.constraints ?? []))
+            // Gather existing constraints from both view and superview, like the first approach
+            var existingConstraints = description.proxyView.view.constraints
+            if let superviewConstraints = description.proxyView.view.superview?.constraints {
+                existingConstraints += superviewConstraints
+            }
+            existingConstraints = existingConstraints.removeDuplicateConstraints()
             
-            // Locate the existing matching constraint
-            if let existingConstraint = existingConstraints.first(where: {
-                // Ensure firstAnchor matches
+            // Find matching constraints (could be multiple, like in first approach)
+            let matchingConstraints = existingConstraints.filter {
                 ($0.firstAnchor == newConstraint.firstAnchor) &&
-                // Match secondAnchor or handle nil cases (like for width/height constraints)
                 ($0.secondAnchor == newConstraint.secondAnchor || $0.secondAnchor == nil || newConstraint.secondAnchor == nil) &&
-                // Ensure same relation (equal, greaterThanOrEqual, lessThanOrEqual)
                 ($0.relation == newConstraint.relation) &&
-                // Constraint should be active to update it
                 ($0.isActive)
-            }) {
-                
-                // Update the constant value of the existing constraint
+            }
+            
+            guard !matchingConstraints.isEmpty else {
+                assertionFailure("AlignKit: Trying to update a constraint which doesn't exist")
+                return
+            }
+            
+            // Update all matching constraints, similar to first approach
+            for existingConstraint in matchingConstraints {
+//                let updateLayoutAttribute = (existingConstraint.secondAnchor == nil)
+//                    ? existingConstraint.firstAnchor
+//                    : existingConstraint.secondAnchor
+                    
+                // You might need to adapt this part based on your constant calculation needs
                 existingConstraint.constant = newConstraint.constant
                 
-                // Log to console if debugging is enabled
                 if description.modificationConfig.shouldDebugOnConsole {
                     debugPrint("\(description.modificationConfig.debugPrefix) \(self.readableFormat()) Updated".highlightForDebug(.info))
                 }
-                
-                
-            } else {
-                // Fatal error if trying to update a non-existing constraint
-                assertionFailure("AlignKit: Trying to update a constraint which doesn't exist")
             }
         }
     }
