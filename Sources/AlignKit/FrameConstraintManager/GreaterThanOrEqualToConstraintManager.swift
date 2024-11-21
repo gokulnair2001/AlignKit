@@ -109,7 +109,7 @@ final internal class GreaterThanOrEqualToConstraintManager: FrameConstraintManag
         
         if anchors.isEmpty {
             // Direct constraints added if no relative anchors are provided
-            let _constraint = proxyAnchor.constraint(equalToConstant: constant)
+            let _constraint = proxyAnchor.constraint(greaterThanOrEqualToConstant: constant)
             _constraint.priority = UILayoutPriority(frameDescription.priority.constraintPriorityValue)
             _constraint.identifier = frameDescription.label
             frameDescription.proxyView.addConstraints(constraint: _constraint)
