@@ -120,7 +120,7 @@ With AlignKit, you get the power of NSLayoutConstraints combined with a modern, 
 You can use these modifiers instantly after chaining the [alk](Sources/AlignKit/Extensions/View+Extension.swift) DSL.
 
 > [!Note]
-> AlignKit have a auto constraint sanitiser which sanitises constraints applied on any view by removing redundant constraints provided.
+> AlignKit have an auto constraint sanitiser which sanitises constraints applied on any view by removing redundant constraints provided.
 
 ## AlignKit's principles and philosophy
 
