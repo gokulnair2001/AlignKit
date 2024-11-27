@@ -134,7 +134,7 @@ NOTE: Being very familiar with SnapKit, we have kept AlignKit syntanxes to be as
 
 ## AlignKit's Perfomance 
 
-Through performance testing, we have found that AlignKit not only matches but, in certain scenarios, surpasses the impressive performance of NSLayoutConstraints. Additionally, it offers a significantly more modern and intuitive API for developers to work with. Our analysis also reveals that AlignKit outperforms the leading market alternative, SnapKit, in various aspects. Check out our detailed performance testing to learn more about how AlignKit stands out.
+Through performance testing, we have found that AlignKit not only matches but, in certain scenarios, surpasses the impressive performance of NSLayoutConstraints. Additionally, it offers a significantly more modern and intuitive API for developers to work with. Our analysis also reveals that AlignKit outperforms the leading market alternative, SnapKit, in various aspects. Check out the detailed [performance testing](Perfomance_Test_Report.md) report to learn more about how AlignKit stands out.
 
 Enjoy the benefits of a clean, streamlined approach to managing your layout constraints, without compromising on the performance. AlignKit truly offers the best of both worlds, empowering you to build fast, efficient, and visually stunning iOS apps.
 
