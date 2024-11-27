@@ -1,11 +1,15 @@
-### **Performance Testing Report**  
 
-To ensure that AlignKit delivers optimal performance and robustness, we conducted various forms of performance testing. Below is a detailed overview of the key tests we performed, along with their results.  
+<p align="center">
+   <img src="https://github.com/user-attachments/assets/1c884451-06ca-45ff-bab0-0a6a696cd28f" alt="LOGO" width=200/>
+   <h1 align="center" >Performance Testing Report</h1>
+</p>
 
-> [!Note]
-> This 
+To ensure that AlignKit delivers optimal performance and robustness, we conducted various forms of performance testing. Below is a detailed overview of the key tests we performed, along with their results. 
 
 ---
+
+> [!Note]
+> The following simulation was done on **iPhone 14**, running on iOS 18.1 with a testing procedure of same parameters 
 
 ### **1. FPS Stability**  
 
