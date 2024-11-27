@@ -140,7 +140,7 @@ Enjoy the benefits of a clean, streamlined approach to managing your layout cons
 
 | FPS | CPU |
 | -- | -- |
-|![FPS Stability](https://github.com/user-attachments/assets/11b9e4d8-cc78-4048-b86b-9d61ecedec4c) | ![CPU Utilisation](https://github.com/user-attachments/assets/0d64c7fe-17f6-494f-af20-5a0876175f3e) | 
+|![FPS Stability](https://github.com/user-attachments/assets/524ea61d-97d7-4ff1-abfc-43f131d60f97) | ![CPU Utilisation](https://github.com/user-attachments/assets/ed4f8470-fcde-4f76-aeeb-faf3ab27adb7) | 
 
 The following simulation was done on iPhone 13, running on iOS 18.1 with a testing procedure of same parameters
 
