@@ -33,7 +33,7 @@ Managing constraints efficiently is crucial for keeping **CPU utilization** at a
 
 ### **3. Core Animation Layout Duration**  
 
-Core Animation is a critical component of rendering smooth transitions and layouts. The **layout duration** reflects how quickly the system can calculate and prepare layouts for rendering. AlignKit reduced Core Animation layout times significantly, showcasing its efficiency in handling complex constraints and dynamic UI updates.  
+Core Animation is a critical component of rendering smooth transitions and layouts. The **layout duration** reflects how quickly the system can calculate and prepare layouts for rendering. When AlignKit was used, the Core Animation layout times got significantly reduced, showcasing its efficiency in handling complex constraints and dynamic UI updates.  
 
 | **Result Comparison** |  
 | --- |  
