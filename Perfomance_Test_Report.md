@@ -43,7 +43,7 @@ Core Animation is a critical component of rendering smooth transitions and layou
 
 ### **4. Memory Usage**  
 
-Efficient memory usage is vital to prevent crashes and maintain smooth app performance, especially on devices with limited resources. AlignKit demonstrated superior memory management by minimizing unnecessary allocations and deallocations, leading to a smaller memory footprint compared to other frameworks.  
+Efficient memory usage is vital to prevent crashes and maintain smooth app performance, especially on devices with limited resources. In the following perfomance testing AlignKit demonstrated slightly better memory management, leading to a smaller memory footprint compared to other frameworks(Memory footprints were almost the same for all).
 
 | **Result Comparison** |  
 | --- |  
@@ -53,7 +53,7 @@ Efficient memory usage is vital to prevent crashes and maintain smooth app perfo
 
 ### **5. Boot Constraint Setup Performance**  
 
-The time required to initialize and apply constraints directly impacts the app's launch performance. With AlignKit, we observed a significant improvement in **constraint setup performance**, ensuring faster boot times and a smoother user experience right from the start.  
+The time required to initialize and apply constraints directly impacts the app's launch performance. With AlignKit, we observed a significant improvement in **constraint setup performance** compared to the market alternative, ensuring faster boot times and a smoother user experience right from the start. The perfomance can be further improved by cold starting the framework.  
 
 | **Result Comparison** |  
 | --- |  
@@ -63,7 +63,7 @@ The time required to initialize and apply constraints directly impacts the app's
 
 ### **6. Layout Performance**  
 
-The efficiency of the layout engine affects how quickly UI elements are updated, especially during animations or dynamic content changes. AlignKit excelled in **layout performance**, demonstrating its ability to handle complex scenarios with minimal lag or delay.  
+The efficiency of the layout engine affects how quickly UI elements are updated, especially during animations or dynamic content changes. AlignKit gave the same perfomance of NSLayoutConstraints in **layout performance**, demonstrating its ability to handle complex scenarios with any lag or delay.  
 
 | **Result Comparison** |  
 | --- |  
