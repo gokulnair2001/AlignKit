@@ -83,11 +83,11 @@ These modifiers are used to create relation among views.
 
 | API | Description |
 |-----|-------------|
-| `equalToSuperView()` | Specifies that the constraint should be equal to the superview's corresponding attribute. |
+| `equalToSuperview()` | Specifies that the constraint should be equal to the superview's corresponding attribute. |
 | `equalTo(constant: ConstraintConstantValue)` | Specifies that the constraint should be equal to a constant value or relative anchor. |
-| `lessThanOrEqualToSuperView()` | Specifies that the constraint should be less than or equal to the superview's corresponding attribute. |
+| `lessThanOrEqualToSuperview()` | Specifies that the constraint should be less than or equal to the superview's corresponding attribute. |
 | `lessThanOrEqualTo(constant: ConstraintConstantValue)` | Specifies that the constraint should be less than or equal to either given relative anchors or constant value. |
-| `greaterThanOrEqualToSuperView()` | Specifies that the constraint should be greater than or equal to the superview's corresponding attribute. |
+| `greaterThanOrEqualToSuperview()` | Specifies that the constraint should be greater than or equal to the superview's corresponding attribute. |
 | `greaterThanOrEqualTo(constant: ConstraintConstantValue)` | Specifies that the constraint should be greater than or equal to either given relative anchors or constant value. |
 
 ### Layout Modifiers
